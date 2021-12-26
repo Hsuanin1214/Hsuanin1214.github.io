@@ -22,9 +22,11 @@
         .photodiv{
             width: 700px;
             position: relative;
-            left:250px;
+            left:500px;
             top: 140px;
             z-index: 1;
+            opacity: 0;
+            transition: 1s;
         }
         .number,span,h2,p{
             color: white;
@@ -63,6 +65,9 @@
         .summary{
             position: absolute;
             z-index: 4;
+            opacity: 0;
+            transition: 1s;
+            left: -100px;
         }
         .advantage{
             background-color: rgb(233, 232, 232);
@@ -70,8 +75,10 @@
             padding:20px;
             position: relative; 
             top:120px;
-            left:100px;
+            left:0px;
             z-index: 2;
+            opacity: 0;
+            transition: 1s;
         }
         .foreword{
             display: flex;
@@ -127,10 +134,10 @@
             margin-right: 0px;
             position: absolute;
             top:350px;
-            right: 240px;
-            /* right:-10px;
-            top: 200px; */
+            right: -200px;
             z-index: 4;
+            opacity: 0;
+            transition: 1s;
         }
         .colorblock{
             background-color: rgb(236, 235, 235);
@@ -138,7 +145,9 @@
             height: 300px;
             position: absolute;
             top: 10px;
-            right: 0px;
+            right: -200px;
+            opacity: 0;
+            transition: 1s;
         }
         .photodiv:nth-of-type(1){
             left: 130px;
@@ -160,6 +169,26 @@
         }
         .youtube:nth-of-type(5){
             left:110px;
+        }
+        .feature:hover .photodiv{
+            opacity: 1;
+            left:250px;
+        }
+        .feature:hover .summary{
+            opacity: 1;
+            left: 0px;
+        }        
+        .feature:hover .advantage{
+            opacity: 1;
+            left: 100px;
+        }
+        .feature:hover .colorblock{
+            opacity: 1;
+            right: 0px;
+        }
+        .feature:hover .youtube{
+            opacity: 1;
+            right: 240px;
         }
         
         
