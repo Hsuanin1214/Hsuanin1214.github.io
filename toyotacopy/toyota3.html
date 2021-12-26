@@ -12,19 +12,18 @@
             width:1200px;
             margin: auto;
             padding-top: 200px;
-            /* background-color: rgb(221, 219, 219); */
         }
         .feature{
-            /* background-color: blue; */
             width: 1200px;
             height: 920px;
             margin: auto;
             position: relative;
         }
-        .photo{
+        .photodiv{
+            width: 700px;
             position: relative;
-            left:200px;
-            top: 150px;
+            left:250px;
+            top: 140px;
             z-index: 1;
         }
         .number,span,h2,p{
@@ -32,38 +31,34 @@
         }
         .list{
             background-color: darkred;
-            width: 450px;
-            height: 150px;
             display: flex;
             justify-content: space-between;
+            padding: 15px;
         }
         .number{
             font-size: 100px;
-            /* transform: translateY(100px); */
             transform: rotate(90deg);
+            display: inline-block;
             margin-block-start: 10px;
         }
         span{
-            font-size: 65px;
-            /* text-align: center; */
-            margin: auto;
-            /* border: 1px solid #fa0; */
-            /* margin-left: -20px; */    
+            font-size: 50px;
+            text-align: center;
+            margin: auto;  
         }
         .content{
             background-color: #000;
             width: 420px;
-            /* height: 200px; */
             padding: 15px;
         }
         .content h2{
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 10px;
         }
         .content p{
-            font-size: 25px;
-            line-height: 2;
+            font-size: 23px;
+            line-height: 1.5;
         }
         .summary{
             position: absolute;
@@ -132,7 +127,7 @@
             margin-right: 0px;
             position: absolute;
             top:350px;
-            right: 280px;
+            right: 240px;
             /* right:-10px;
             top: 200px; */
             z-index: 4;
@@ -146,14 +141,14 @@
             right: 0px;
         }
         .photodiv:nth-of-type(1){
-            position: relative;
-            left: -110px;
+            left: 130px;
         }
         .colorblock:nth-of-type(2){
             background-color: rgb(236, 235, 235);
             width: 520px;
-            height: 400px;
-            left:50px;
+            height: 420px;
+            top:50px;
+            left:350px;
         }
         .summary:nth-of-type(3){
             position: absolute;
@@ -164,7 +159,7 @@
             left:400px;
         }
         .youtube:nth-of-type(5){
-            left:50px;
+            left:110px;
         }
         
         
@@ -183,7 +178,9 @@
                     <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨新馳騁的行駛快感</p>
                 </div>
             </div>
-            <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            <div class="photodiv">
+                <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            </div>
             <div class="advantage">
                 <div class="foreword">
                     <p class="innovation">因為我們做了這些革新</p>
@@ -245,7 +242,9 @@
                         途駕駛不疲勞的舒適駕馭體驗。</p>
                 </div>
             </div>
-            <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            <div class="photodiv">
+                <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            </div>
             <div class="advantage">
                 <div class="foreword">
                     <p class="innovation">因為我們做了這些革新</p>
@@ -310,7 +309,9 @@
                         也能讓擁有者都能引以為傲</p>
                 </div>
             </div>
-            <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            <div class="photodiv">
+                <img class="photo" src="https://picsum.photos/700/430/?random=1">
+            </div>
             <div class="advantage">
                 <div class="foreword">
                     <p class="innovation">因為我們做了這些革新</p>
