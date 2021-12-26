@@ -11,7 +11,6 @@
         .box{
             width:1200px;
             margin: auto;
-            padding-top: 200px;
         }
         .feature{
             width: 1200px;
@@ -74,8 +73,8 @@
             width: 700px;
             padding:20px;
             position: relative; 
-            top:120px;
-            left:0px;
+            top:220px;
+            left:100px;
             z-index: 2;
             opacity: 0;
             transition: 1s;
@@ -147,28 +146,27 @@
             top: 10px;
             right: -200px;
             opacity: 0;
-            transition: 1s;
+            transition: 1.5s;
         }
         .photodiv:nth-of-type(1){
-            left: 130px;
+            left: 0px;
         }
         .colorblock:nth-of-type(2){
             background-color: rgb(236, 235, 235);
             width: 520px;
             height: 420px;
-            top:50px;
+            top:-30px;
             left:350px;
         }
         .summary:nth-of-type(3){
-            position: absolute;
             top: 0px;
-            right:50px;
+            left: 800px;
         } 
         .advantage:nth-of-type(4){
             left:400px;
         }
         .youtube:nth-of-type(5){
-            left:110px;
+            left:10px;
         }
         .feature:hover .photodiv{
             opacity: 1;
@@ -180,7 +178,7 @@
         }        
         .feature:hover .advantage{
             opacity: 1;
-            left: 100px;
+            top: 120px;
         }
         .feature:hover .colorblock{
             opacity: 1;
@@ -190,6 +188,19 @@
             opacity: 1;
             right: 240px;
         }
+        .feature:hover .photodiv:nth-of-type(1){
+            left: 130px;
+        }
+        .feature:hover .colorblock:nth-of-type(2){
+            top:50px;
+        }
+        .feature:hover .summary:nth-of-type(3){
+            left:680px;
+        }
+        .feature:hover .youtube:nth-of-type(5){
+            left:110px;
+        }
+        
         
         
     </style>
