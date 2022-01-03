@@ -1,0 +1,314 @@
+.row{
+    outline: 1px solid red;
+}
+/* [class*='_creativityinfo']{
+    outline: 1px solid blue;
+} */
+.container{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+}
+.subscribe{
+    display: none;
+}
+a{
+    text-decoration: none;
+}
+.maikonlogo{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.item_nav a{
+    display: block;
+    padding: 7px 10px;
+    text-decoration: none;
+    color: #000;
+}
+.item_nav .X{
+    text-align: end;
+    margin: 5px 10px;
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+.sr-only{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+#menu-control{
+    position: absolute;
+    top: -20px;
+}
+
+img{
+    vertical-align: middle;
+    width: 100%;
+}
+.row.creativityinfo:nth-of-type(2){
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+
+.row .creativityinfo,.col .contactinfo{
+    display: flex;
+}
+.col.creativityinfo,.col .contactinfo{
+    display: flex;
+    justify-content: center;
+    
+}
+.item_creativityinfo,.item_contactinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.item_logo{
+    padding: 10px;
+}
+.item_txt{
+    margin-left: 0px;
+    padding-bottom: 30px;
+}
+.item_txt h2{
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 40px;
+    padding: 30px;
+    padding-left: 0;
+}
+.item_txt p{
+    font-size: 14px;
+    color: #5d6678;
+    line-height: 20px;
+}
+.item_btn_learn,.item_btn_contact{
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+.item_btn_learn img{
+    padding-left: 20px;
+}
+.btn_learn,.btn_contactus {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #1fde82;
+    line-height: 1.5em;
+    margin: auto 0px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-right: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+.btn_contact,.btn_contact_subscribe{
+    display: block;
+    color: #3b3d42;
+    border: 2px solid #f2f5fc;
+    background-color: #fff;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.span_service{
+    display: block;
+    font-size: 30px;
+    line-height: 1.3em;
+    letter-spacing: 0.84px;
+    font-weight: 300;
+    color: #1d273b;
+    padding: 10px;
+}
+
+
+.item_services img{
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.item_services h3,p{
+    text-align: left;
+}
+.item_services h3{
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.item_services p{
+    font-size: 12px;
+    color: #5d6678;
+    line-height: 18px;
+    margin-bottom: 30px;
+}
+.item_services a{
+    font-size: 14px;
+    font-weight: 500;
+    color: #3b3d42;
+    padding-left: 0;
+    margin-top: auto;
+    
+}
+.item_services{
+    /* height: 300px; */
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 15px 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 44px 0px rgb(17 29 48 / 6%);
+}
+.reasons{
+    background-color: #2570ff;
+    color: #fff;
+}
+.reasons span{
+    font-weight: 500;
+}
+
+.reasons_num{
+    background-color: #3f81ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 15px 10px 10px 10px;
+}
+.item_block_reasons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+
+
+@media  screen and (max-width:767px) {
+    /* .maikonlogo{
+        max-width: 1200px;
+    } */
+    .item_nav{
+        position: fixed;
+        height: calc(100% - 54px);
+        width: 75%;
+        background-color: #fff;
+        /* top:74px; */
+        right: -330px;
+        transition: .5s;
+    }
+    #menu-control:checked ~ .container .item_nav{
+        right: 0px;
+    }
+    .item_nav a + a{
+        border-top: 1px solid #000;
+    }
+    .hb{
+        width: 40px;
+        height: 40px;
+        background-color: #1fde82;
+        display: flex;
+
+    }
+    .hb::after{
+        content: '';
+        display: block;
+        width: 60%;
+        height: 4px;
+        background-color: #fff;
+        margin: auto;
+        box-shadow: 0px 8px 0px #fff,
+                    0px -8px 0px #fff;
+    }
+    .item_block_reasons{
+        align-items: center;
+    }
+    .reasons_num span{
+        font-size: 34px;
+        text-align: center;
+    }
+    .reasons_num p{
+        font-size: 14px;
+        text-align: center;
+    }
+    
+}
+
+
+@media screen and (min-width:768px) {
+    a.subscribe{
+        display: inline-block;
+        line-height: 57px;
+        margin-left: 20px;
+        color: #818a91;
+        border: 2px solid #f2f5fc;
+        border-radius: 5px;
+        padding:0px 10px;
+        font-weight: 600;
+    }
+    .item_nav{
+        display: inline-block;
+        margin-left:auto;
+        font-size: 20px;
+        line-height: 74px;
+    }
+    .item_nav a{
+        color: #c0c7d2;
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .item_nav{
+        display: flex;
+    }
+    .X{
+        display: none;
+    }
+    .container.nav{
+        position: fixed;
+        width: 1200px;
+        left: 0px;
+        right: 0;
+        margin: auto;
+    }
+
+    .row.creativityinfo:nth-of-type(2){
+        flex-direction: row-reverse;
+    }
+    .item_services h3{
+        font-size: 22px;
+    }
+    .item_services p{
+        font-size: 14px;
+        color: #5d6678;
+        line-height: 25px;
+        margin-bottom: 25px;
+    }
+    .item_services{
+        height: 290px;
+        border-radius: 10px;
+        background-color: #fff;
+        margin: 15px;
+        padding: 20px;
+        box-shadow: 0px 4px 44px 0px rgb(17 29 48 / 6%);
+    }
+    .item_services a{
+        font-size: 14px;
+        font-weight: 500;
+        color: #3b3d42;
+    }
+
+    .item_block_reasons{
+        align-items: left;
+    }
+
+}
