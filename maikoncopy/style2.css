@@ -1,9 +1,9 @@
-/* .row{
+.row{
     outline: 1px solid red;
 }
 [class*='col-']{
     outline: 1px solid blue;
-} */
+}
 .container{
     font-family: 'Roboto', sans-serif;
     background-color: #fff;
@@ -254,7 +254,7 @@ section.colorblock, section.colorblock .row{
         width: 75%;
         background-color: #fff;
         top:74px;
-        right: -330px;
+        right: -500px;
         transition: .5s;
     }
     #menu-control:checked ~ .container .item_nav{
@@ -378,7 +378,7 @@ section.colorblock, section.colorblock .row{
         align-items: center;
     }
     .container.icon :nth-child(even) .col-12.col-md-3.icon{
-        margin-left: 16.666666%;
+        margin-left: 5%;
     }
     .col-12.col-md-8 .item_txt{
         margin-left: 0;
@@ -390,7 +390,9 @@ section.colorblock, section.colorblock .row{
         flex-direction: row-reverse;
     }
     .container.icon :nth-child(odd) .col-12.col-md-3.icon{
-        margin-right:50px;
+        margin-right:5%;
     }
-
+    .container.icon :nth-child(odd) .icon_num_wrap{
+        justify-content: flex-end;
+    }
 }
