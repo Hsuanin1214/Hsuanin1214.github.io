@@ -97,7 +97,7 @@ header{
 /* .item_btn_learn img{
     padding-left: 20px;
 } */
-.btn_learn, .btn_contact{
+.btn_learn, .btn_contact, .btn_project{
     /* display: block; */
     font-size: 14px;
     background-color: #1fde82;
@@ -234,6 +234,27 @@ section.colorblock, section.colorblock .row{
 }
 .row.icon{
     flex-wrap: wrap-reverse;
+}
+/* project */
+section.project{
+    background-color: #f9fbff;
+}
+.col-12.col-md-6.project{
+    font-size: 28px;
+    color: #1d273b;
+    line-height: 1.31em;
+    letter-spacing: 0.84px;
+}
+.row.project{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.item_btn_project{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.pic.project{
+    margin: 10%;
 }
 
 
@@ -394,5 +415,15 @@ section.colorblock, section.colorblock .row{
     }
     .container.icon :nth-child(odd) .icon_num_wrap{
         justify-content: flex-end;
+    }
+    /* projects */
+    .item_btn_project{
+        text-align: end;
+    }
+    a.item_project{
+        text-align: end;
+    }
+    .btn_project{
+        margin-left: 0;
     }
 }
