@@ -4,4 +4,13 @@
   overflow: hidden;
   position: absolute;
 }
+
+.row.colorblock {
+  width: 85%;
+}
+
+.container.colorblock .row {
+  margin-left: auto;
+  margin-right: auto;
+}
 /*# sourceMappingURL=style.css.map */
