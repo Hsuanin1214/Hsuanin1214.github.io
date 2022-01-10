@@ -24,7 +24,8 @@
 
     <script>
         let container = document.getElementById('container');
-        let index=1;
+        let index=0;
+        //避免其他button跟index變數有關，所以要把其他index關掉
 
         window.onload = setPokemon();
 
@@ -38,7 +39,7 @@
 
             let pokemonImg = `<img src='${pathfile}'>`;
             container.innerHTML = pokemonImg;
-            
+            index=2;
         }
 
         //方式2:新增DOM元素
@@ -59,7 +60,7 @@
                 let pokemonImg = `<img src='${pathfile}'>`;
                 pokemons += pokemonImg;
             }
-
+            index=890;
             container.innerHTML= pokemons;
     
         }
@@ -75,6 +76,7 @@
                 pokemons+=pokemonImg;
                 
             }
+            index=898;
             container.innerHTML = pokemons;
         };
 
@@ -94,13 +96,14 @@
                 img.setAttribute("src",pathfile);
                 container.appendChild(img);
             }
+            index=898;
         });
 
         
 
         let btn4 = document.getElementById("button4");
         btn4.addEventListener("click",function(){
-            container.innerHTML="";
+            // container.innerHTML="";
             if(index<890){
                 let  fileName=index.toString().padStart(3,"0");
                 let pathfile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
@@ -137,6 +140,7 @@
             while (container.firstChild){
                 container.removeChild(container.firstChild);
             }
+            index=1;
         }
 
 
