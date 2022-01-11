@@ -25,7 +25,7 @@
     <script>
         let container = document.getElementById('container');
         let index=0;
-        //避免其他button跟index變數有關，所以要把其他index關掉
+        //要讓button跟index變數有關，所以要把其他index顯示到第幾張
 
         window.onload = setPokemon();
 
@@ -54,13 +54,13 @@
         function fetchPokemon() {
             let pokemons=" ";
 
-            for(let i=1; i<890; i++){
+            for(let i=1; i<898; i++){
                 let fileName = i.toString().padStart(3,"0");
                 let pathfile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg = `<img src='${pathfile}'>`;
                 pokemons += pokemonImg;
             }
-            index=890;
+            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML= pokemons;
     
         }
@@ -74,9 +74,8 @@
                 let pathFile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg=`<img src='${pathFile}'>`
                 pokemons+=pokemonImg;
-                
             }
-            index=898;
+            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML = pokemons;
         };
 
@@ -94,9 +93,9 @@
 
                 let img = document.createElement("img");
                 img.setAttribute("src",pathfile);
-                container.appendChild(img);
+                container.appendChild(img);   
             }
-            index=898;
+            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
         });
 
         
@@ -104,7 +103,7 @@
         let btn4 = document.getElementById("button4");
         btn4.addEventListener("click",function(){
             // container.innerHTML="";
-            if(index<890){
+            if(index<898){
                 let  fileName=index.toString().padStart(3,"0");
                 let pathfile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
 
@@ -119,7 +118,7 @@
 
             //下面比較好
             //container.innerHTML="";
-            //let fileNAme=i.toString().padStart(3,"0");
+            //let fileName=i.toString().padStart(3,"0");
             //let img =document.createElement("img");讓html產生一個叫img的物件
             //img.setAttribute("src",pathfile);在img 的標籤加入Src 和pathfile帶入的網址
             //container.appendchild(img);把標籤加入container裡
@@ -129,19 +128,21 @@
         btn5.addEventListener("click",function removeOne(){
             if(container.lastChild!==null){
                 container.removeChild(container.lastChild);
+                index-=1;    
             } 
-            index-=1;    
         });
 
         //reset button
         function resetPokemon() {
             container.innerHTML="";
 
-            while (container.firstChild){
-                container.removeChild(container.firstChild);
-            }
-            index=1;
+            // while (container.firstChild){
+            //     container.removeChild(container.firstChild);
+            // }
+            index=1;//reset之後，要重新印出第一張
         }
+
+        //樂融寫法
 
 
     </script>
