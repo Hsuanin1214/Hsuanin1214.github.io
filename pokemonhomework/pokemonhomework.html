@@ -54,13 +54,13 @@
         function fetchPokemon() {
             let pokemons=" ";
 
-            for(let i=1; i<898; i++){
+            for(let i=1; i<899; i++){
                 let fileName = i.toString().padStart(3,"0");
                 let pathfile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg = `<img src='${pathfile}'>`;
                 pokemons += pokemonImg;
             }
-            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
+            index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML= pokemons;
     
         }
@@ -69,13 +69,13 @@
         btn2.onclick=function(){
             let pokemons="";
 
-            for(let i=1;i<898;i++){
+            for(let i=1;i<899;i++){
                 let fileName=i.toString().padStart(3,"0");
                 let pathFile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg=`<img src='${pathFile}'>`
                 pokemons+=pokemonImg;
             }
-            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
+            index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML = pokemons;
         };
 
@@ -87,7 +87,7 @@
 
             let fileName, pathfile;
 
-            for(let i=1;i<898;i++){
+            for(let i=1;i<899;i++){
                 fileName=i.toString().padStart(3,"0");
                 pathfile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
 
@@ -95,7 +95,7 @@
                 img.setAttribute("src",pathfile);
                 container.appendChild(img);   
             }
-            index=898;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
+            index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
         });
 
         
@@ -103,7 +103,7 @@
         let btn4 = document.getElementById("button4");
         btn4.addEventListener("click",function(){
             // container.innerHTML="";
-            if(index<898){
+            if(index<899){
                 let  fileName=index.toString().padStart(3,"0");
                 let pathfile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
 
