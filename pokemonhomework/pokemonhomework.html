@@ -14,14 +14,13 @@
     <button id="button2" onclick='fetchPokemon()'>載入寶可夢圖鑑列表fetchPokemon()</button>
     <button id="button3">載入寶可夢圖鑑列表appendChild()</button>
     <button id='reset' onclick="resetPokemon()">Reset</button>
-    <button id="button4">加一按鈕</button>
-    <button id="button5">減一按鈕</button>
+    <button id="add">加一按鈕</button>
+    <button id="minus">減一按鈕</button>
     <button id="timer">Timer</button>
     <button id="stop">Stop Timer</button>
 
 
     <div id='container'></div>
-
 
 
 
@@ -109,7 +108,7 @@
 
         
 
-        let btn4 = document.getElementById("button4");
+        let btn4 = document.getElementById("add");
         btn4.addEventListener("click",function(){
             // container.innerHTML="";
             if(index<899){
@@ -133,7 +132,7 @@
             //container.appendchild(img);把標籤加入container裡
             //i++;
         });
-        let btn5=document.getElementById("button5");
+        let btn5=document.getElementById("minus");
         btn5.addEventListener("click",function removeOne(){
             if(container.lastChild!==null){
                 container.removeChild(container.lastChild);
