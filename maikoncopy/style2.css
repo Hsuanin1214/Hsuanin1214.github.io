@@ -98,7 +98,7 @@ header{
 /* .item_btn_learn img{
     padding-left: 20px;
 } */
-.btn_learn, .btn_contact, .btn_project, .btn_send{
+.btn_learn, .btn_contact, .btn_project, .btn_send ,.btn_subscribe_wrap{
     /* display: block; */
     font-size: 14px;
     background-color: #1fde82;
@@ -110,6 +110,8 @@ header{
     margin-right: 30px;
     font-weight: 600;
     text-align: center;
+    text-transform:uppercase;
+    box-shadow: rgb(31 222 130 46%);
 }
 .btn_contact.btn_contact_subscribe{
     /* display: block; */
@@ -118,11 +120,15 @@ header{
     background-color: #fff;
     /* margin-left: 20px; */
     font-weight: 500;
+    text-transform:uppercase;
 }
 
 /* services */
+section.services, section.contactinfo{
+    margin-top: 5%;
+}
 h2.services{
-    font-size: 30px;
+    font-size: 42px;
     line-height: 1.3em;
     letter-spacing: 0.84px;
     font-weight: 300;
@@ -210,8 +216,15 @@ section.colorblock, section.colorblock .row{
     /* margin-right: 30px; */
     font-weight: 600;
     text-align: center;
+    text-transform:uppercase;
 }
 /* icon */
+section.colorblock{
+    margin-top: 5%;
+}
+.container.icon{
+    margin-top: 5%;
+}
 .iconnum{
     width: 70px;
     height: 70px;
@@ -237,6 +250,9 @@ section.colorblock, section.colorblock .row{
     flex-wrap: wrap-reverse;
 }
 /* project */
+section.project{
+    margin-top: 5%;
+}
 section.project, section.project .container, .row.project{
     background-color: #f9fbff;
 }
@@ -293,42 +309,192 @@ section.project, section.project .container, .row.project{
     display: flex;
     flex-direction: column;
 } */
+.container.signup{
+    margin-top: 5%;
+}
 .item.signup, .item_signup{
     margin: 10%;
 }
 .item_signup{
     display: flex;
     flex-direction: column;
-    border:2px solid#1d273b;
+    /* border:2px solid#1d273b; */
     border-radius: 5%;
-    box-shadow: rgba(17, 29, 48, 0.06);
     padding: 10% 5%;
 }
+/* .col-12.col-md-6.item_signup{
+    box-shadow: rgba(17, 29, 48, 0.06);
+} */
 .item_signup p{
     font-size: 30px;
     margin-bottom: 3%;
+    color: #1d273b;
 }
 .item_signup span{
     font-size: 12px;
     text-align: end;
 }
-.btn_send{
+.btn_send, .btn_subscribe_wrap{
     display: inline-block;
     line-height: 1em;
+    border: none;
 }
 .btn_send_text{
     text-align: start;
 }
 input{
     padding: 2%;
+    margin-bottom: 5%;
 }
-
 textarea{
     padding: 3%;
 }
+.messagetextarea{
+    margin-bottom: 5%;
+    resize: vertical;
+}
+/* subscribe_wrap */
+section.subscribe_wraps{
+    background-color: #f7faff;
+    margin-top: 5%;
+    
+}
+.subscribe_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7faff;
+}
 
+.item_subscribe_content p{
+    font-size: 28px;
+    color: #1d273b;
+    margin-top: 5%;
+}
+.sendemil_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sendemail{
+    margin-top: 5%;
+    margin-right: 0;
+    margin-left: 15%;
+    display: inline-block;
+    width: 70%;
+    background-color: #fff;
+    border: none;
+    border-radius: 4%;
+    box-shadow: rgba(17, 29, 48, 0.06);
+}
+.btn_subscribe_wrap{
+    position: relative;
+    box-shadow: rgba(31, 222, 130, 0.46);
+    left: -18%;
+    height: 20%;
+}
+.container.subscribe_wrapsup{
+    background-color: #f7faff;
+}
+/* info */
+.row.info{
+    margin-top: 5%;
+}
+.item_info_title_pic{
+    width: 158px;
+    margin-top: 5%;
+}
 
+.item_info_content,.item_info_content_service,.item_info_content_about{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+}
 
+.item_info_content, .item_info_content_service a,.item_info_content_about a,.item_info_content span, .item_info_content_join p{
+    color: #5d6678;
+    font-size: 16px;
+    padding-bottom: 4%;
+    line-height: 25px;
+}
+.item_info_content a{
+    color: #1fde82;
+    padding-top: 2%;
+}
+.item_info_title, .item_info_title_join{
+
+    display: inline-block;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+.item_info_title_join{
+    margin-bottom: 2%;
+}
+.item_info_title h4 ,.item_info_title_join h4{
+    font-size: 30px;
+    font-weight: 400;
+}
+.item_info_content_join{
+    margin-bottom: 10%;
+}
+i{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #c0c7d2;
+    border-radius: 50%;
+    color: #c0c7d2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    margin-right: 1%;
+    
+}
+i::before{
+    position: absolute;
+    left: 28%;
+    top: 25%;
+}
+i.fab.fa-youtube::before{
+    left: 20%;
+}
+i.fab.fa-facebook-f::before{
+    left: 30%;
+}
+.a_sns{
+    margin-top: 10%;
+}
+.a_sns i:hover{
+    border: none;
+    background-color:  #1fde82;
+    color: #fff;
+}
+/* footer */
+.item_footer p,.item_footer a{
+    color: #5d6678;
+    font-size: 14px;
+    text-align: center;
+    
+}
+.item_footer.faq{
+    text-align: center;
+    margin-top: 2%;
+}
+.item_footer.copyright a{
+    color: #1fde82;
+    display: block;
+    text-align: center;
+}
+.item_footer.faq a.faq{
+    margin-left: 5%;
+}
+.row.footer{
+    margin-bottom: 2%;
+    margin-top: 6%;
+}
 
 
 
@@ -387,6 +553,8 @@ textarea{
     /* creativityinfo */
     /* services */
     /* num */
+    /* info */
+
     
 }
 
@@ -408,6 +576,8 @@ textarea{
         border-radius: 5px;
         padding-right:15px;
         font-weight: 600;
+        text-align: center;
+        text-transform:uppercase;
     }
     .item_nav a{
         font-size: 14px;
@@ -427,6 +597,9 @@ textarea{
         font-size: 42px;
         font-weight: 100;
         color: #1d273b;
+    }
+    .btn_learn, .btn_contact, .btn_project, .btn_send ,.btn_subscribe_wrap{
+        margin-left: 30px;
     }
     /* services */
     h2.services{
@@ -508,5 +681,46 @@ textarea{
     .colorblocktxt{
         padding: 8%;
     }
+    /* signup */
+    .item_signup p{
+        font-size: 42px;
+    }
+    .item_subscribe_content p{
+        font-size: 40px;
+    }
 
+    /* info */
+    .item_info_content_service a,.item_info_content_about a{
+        font-size: 16px;
+        padding-top:3%;
+    }
+    .item_info_content_join p{
+        margin-top: 8%;
+    }
+
+    .item_info_title{
+        font-weight: 400;
+        display: inline-block;
+        width: 100%;
+    }
+    .item_info_title h4,.item_info_title_join h4{
+        font-size: 22px;
+        line-height: 40px;
+        margin-top: 3%;
+    }
+    .item_footer.copyright a{
+        display: inline-block;
+    }
+    .col-12.col-md-6.copyright{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .item_footer.faq{
+        text-align: end;
+        margin-top: 0;
+    }
+    footer.copright{
+        margin-bottom: 10%;
+    }
 }

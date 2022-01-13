@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./grid.css">
     <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
     <header>    
@@ -85,10 +86,10 @@
         </div>
         
     </section>
-    <section class="container">
+    <section class="container services">
         <!-- services -->
         <div class="row">
-            <h2 class="col-12 col-md-12 servicems">We provide a wide range of creative services</h2>
+            <h2 class="col-12 col-md-12 services">We provide a wide range of creative services</h2>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 servics">
@@ -98,7 +99,7 @@
                     </div>
                     <h3>Web Design & Brending</h3>
                     <p>A great brand combines design and conveys company’s value messaging to evoke emotion and drive strategy.</p>
-                    <a href="#">Read more</a>
+                    <a href="#">Read More</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 servics">
@@ -108,7 +109,7 @@
                     </div>
                     <h3>Graphic Design</h3>
                     <p>Rich experience plus unlimited imagination create our successful service discovered by clients.</p>
-                    <a href="#">Read more</a>
+                    <a href="#">Read More</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 servics">
@@ -118,7 +119,7 @@
                     </div>
                     <h3>Video Production</h3>
                     <p>Creating and handling professional video is our strong point. It plays major role in your digital business strategy.</p>
-                    <a href="#">READ MORE</a>
+                    <a href="#">Read More</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 servics">
@@ -128,7 +129,7 @@
                     </div>
                     <h3>SEO</h3>
                     <p>We provide everything your site needs to perform at it’s highest capabilities on the major search engines.</p>
-                    <a href="#">Read more</a>
+                    <a href="#">Read More</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 servics">
@@ -138,7 +139,7 @@
                     </div>
                     <h3>Digital Marketing</h3>
                     <p>We do collateral design, interactive design, hoarding, signage, presentation centres, and more.</p>
-                    <a href="#">READ MORE</a>
+                    <a href="#">Read More</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 servics">
@@ -153,7 +154,7 @@
             </div>
         </div>
     </section>
-    <section class="container">
+    <section class="container contactinfo">
         <!-- contact -->
         <div class="row contactinfo">
             <div class="col-12 col-md-6">
@@ -373,24 +374,24 @@
                 <div class="item_signup">
                     <p>Sign up for our consultation</p>
                     <input type="text" placeholder="Name">
-                    <span>The field is required.</span>
-                    <input type="email" >
-                    <span>The field is required.</span>
-                    <textarea placeholder="Message" Namename="" id="" cols="10" rows="4"></textarea>
+                    <!-- <span>The field is required.</span> -->
+                    <input type="email" placeholder="Email">
+                    <!-- <span>The field is required.</span> -->
+                    <textarea class="messagetextarea" placeholder="Message" Namename="" id="" cols="10" rows="4"></textarea>
                     <button class="btn_send">Send</button>
-                    <span class="btn_send_text">One or more fields have an error. Please check and try again.</span>
+                    <!-- <span class="btn_send_text">One or more fields have an error. Please check and try again.</span> -->
                 </div>
             </div>
         </div>
     </section>
-    <section class="container">
-        <div class="subscribe_wrap">
+    <section class="subscribe_wraps">
+        <div class="container subscribe_wrap">
             <div class="row">
-                <div class="col-12">
-                    <div class="item_subscribe_wrap">
+                <div class="col-12 item_subscribe_wrap">
+                    <div class="item_subscribe_content">
                         <p>Subscribe to our news and learn more</p>
-                        <div class="sendemail">
-                            <input type="text" placeholder="Your email">
+                        <div class="sendemil_wrap">
+                            <input class="sendemail" type="text" placeholder="Your email" cols="10" rows="4">
                             <button class="btn_subscribe_wrap">
                                 <span>SUBSCRIBE</span>
                             </button>
@@ -401,15 +402,15 @@
         </div>
     </section>
     <section class="container info">
-        <div class="row">
+        <div class="row info">
             <div class="col-12 col-md-6 col-lg-3 items_info">
                 <div class="item_info">
-                    <div class="item_info_title">
+                    <div class="item_info_title_pic">
                         <img src="./assets/asset 0.webp" alt="Maikonlogo">
                     </div>
                     <div class="item_info_content">
                         <a href="tel:+1(045)-224-1-67">phone: <span>+ 1 (045) - 224 - 12 - 67</span></a>
-                        <a href="mailto:">Mail: <span>info@demolink.org</span></a>
+                        <a href="mailto:info@demolink.org">Mail: <span>info@demolink.org</span></a>
                     </div>
                 </div>
             </div>
@@ -418,7 +419,7 @@
                     <div class="item_info_title">
                         <h4>Services</h4>
                     </div>
-                    <div class="item_info_content">
+                    <div class="item_info_content_service">
                         <a href="#">
                             Web design & brending
                         </a>
@@ -447,7 +448,7 @@
                             About Company
                         </h4>
                     </div>
-                    <div class="item_info_content">
+                    <div class="item_info_content_about">
                         <a href="#">About us</a>
                         <a href="#">Team</a>
                         <a href="#">Case studio</a>
@@ -457,16 +458,28 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3 items_info">
                 <div class="item_info">
-                    <div class="item_info_title">
+                    <div class="item_info_title_join">
                         <h4>
                             Our Social Networks
                         </h4>
                     </div>
-                    <div class="item_info_content">
+                    <div class="item_info_content_join">
                         <p>
                             Join us in the social networks and keep up on the latest news.
                         </p>
-                        <div>
+                        <div class="a_sns">
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter-square"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -475,22 +488,23 @@
     </section>
 
     <footer class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="item_footer">
+        <div class="row footer">
+            <div class="col-12 col-md-6 copyright">
+                <div class="item_footer copyright">
                     <p>
-                        Copyright © 2018 Wordpress Maikon. All Rights Reserved. | Theme design by Zemez
+                        Copyright © 2018 Wordpress Maikon. All Rights Reserved. | Theme design by <a href="#">Zemez</a>
                     </p>
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="item_footer">
-                    <p>
-                        Privacy & Policy    
-                        <span>
-                            FAQ
-                        </span>
-                    </p>
+                <div class="item_footer faq">
+                    <a href="#">
+                        Privacy & Policy
+                    </a>    
+                    <a href="#" class="faq">
+                        FAQ
+                    </a>
+                    
                 </div>
             </div>
         </div>
