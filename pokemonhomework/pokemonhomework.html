@@ -73,11 +73,20 @@
                 let fileName=i.toString().padStart(3,"0");
                 let pathFile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg=`<img src='${pathFile}'>`
+
+
+                
+                img.addEventListener('click',removeImg);//點擊圖片可以移除
                 pokemons+=pokemonImg;
             }
             index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML = pokemons;
         };
+
+        //移除元素
+        function removeImg(event){
+            container.removeChild(event.target);
+        }
 
 
         //方式2:for迴圈 ＋ 新增DOM元素
