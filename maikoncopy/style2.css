@@ -1,9 +1,9 @@
-.row{
+/* .row{
     outline: 1px solid red;
 }
 [class*='col-']{
     outline: 1px solid blue;
-}
+} */
 .container{
     font-family: 'Roboto', sans-serif;
     background-color: #fff;
@@ -228,7 +228,7 @@ section.colorblock, section.colorblock .row{
     text-align: center;
     text-transform:uppercase;
 }
-.item_btn_otherservice a:hover, .btn_contact_subscribe:hover, .btn_subscribe_wrap:hover{
+.item_btn_otherservice a:hover, .btn_contact_subscribe:hover, .item_subscribe:hover{
     background-color: #1fde82;
     color: #fff;
     border: none;
