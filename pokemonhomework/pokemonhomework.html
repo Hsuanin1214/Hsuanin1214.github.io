@@ -16,6 +16,9 @@
     <button id='reset' onclick="resetPokemon()">Reset</button>
     <button id="button4">加一按鈕</button>
     <button id="button5">減一按鈕</button>
+    <button id="timer">Timer</button>
+    <button id="stop">Stop Timer</button>
+
 
     <div id='container'></div>
 
@@ -24,7 +27,7 @@
 
     <script>
         let container = document.getElementById('container');
-        let index=0;
+        let index=1;
         //要讓button跟index變數有關，所以要把其他index顯示到第幾張
 
         window.onload = setPokemon();
@@ -72,21 +75,12 @@
             for(let i=1;i<899;i++){
                 let fileName=i.toString().padStart(3,"0");
                 let pathFile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
-                let pokemonImg=`<img src='${pathFile}'>`
-
-
-                
-                img.addEventListener('click',removeImg);//點擊圖片可以移除
-                pokemons+=pokemonImg;
+                let Img=`<img src='${pathFile}'>`
+                pokemons+=Img;
             }
             index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
             container.innerHTML = pokemons;
         };
-
-        //移除元素
-        function removeImg(event){
-            container.removeChild(event.target);
-        }
 
 
         //方式2:for迴圈 ＋ 新增DOM元素
@@ -102,10 +96,16 @@
 
                 let img = document.createElement("img");
                 img.setAttribute("src",pathfile);
+                img.addEventListener('click',removeImg);//點擊圖片可以移除
                 container.appendChild(img);   
             }
             index=899;//要告訴第四第五個按鈕他印到第幾張，要印下一張出來
         });
+
+        //移除元素
+        function removeImg(event){
+            container.removeChild(event.target);
+        }
 
         
 
@@ -151,7 +151,29 @@
             index=1;//reset之後，要重新印出第一張
         }
 
-        //樂融寫法
+        let intervalId
+        let timer =document.getElementById('timer');
+        timer.addEventListener('click',function(){
+            intervalId=setInterval(addPokemon,500)
+        });
+        let stop=document.getElementById('stop');
+        stop.addEventListener('click',function(){
+            clearInterval(intervalId);
+        });
+
+        function addPokemon(){
+            let img =document.createElement('img');
+            let no=index.toString().padStart(3,'0');
+            img.setAttribute('src',`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`);
+            img.setAttribute('id',no);
+            img.addEventListener('click',removeImg);
+
+            container.appendChild(img);
+            index++;
+        }
+
+
+        
 
 
     </script>
