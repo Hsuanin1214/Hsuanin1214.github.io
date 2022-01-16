@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./grid.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="row mt-5">
+            <div id="titleh1div" class="col-12 col-md-6 ipadair_buy text-center">
+            </div>
+            <div id="titlepdiv" class="col-12 col-md-5 ipadair_buy text-center">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <div class="pic pic_ipadair sticky-md-top "></div>
+            </div>
+            <div class="col-12 col-md-5 accordion accordion-flush mt-5" id="accordionFlush">
+                <div class="accordion-item"></div>
+                <div class="accordion-item2"></div>
+                <div class="accordion-item3"></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const appleArray =
+            [
+                {
+                    "product": "購買 iPad",
+                    "data-name": "ipadair",
+                    "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=886&hei=1070&fmt=jpeg&qlt=80&.v=1599066777000",
+                    "colors": [
+                        {
+                            "sku": "ipadair1",
+                            "name": "Space Gray",
+                            "icon-txt": "太空灰色",
+                            "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422652805",
+                            "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-spacegray-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650646000"
+                        },
+                        {
+                            "sku": "ipadair2",
+                            "name": "Silver",
+                            "icon-txt": "銀色",
+                            "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422655664",
+                            "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-silver-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650645000"
+                        },
+                        {
+                            "sku": "ipadair3",
+                            "name": "Green",
+                            "icon-txt": "綠色",
+                            "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000",
+                            "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-green-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+                        },
+                        {
+                            "sku": "ipadair4",
+                            "name": "Rose Gold",
+                            "icon-txt": "玫瑰金色",
+                            "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000",
+                            "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-gold-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+                        },
+                        {
+                            "sku": "ipadair5",
+                            "name": "Sky Blue",
+                            "icon-txt": "天藍色",
+                            "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1599240136000",
+                            "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-blue-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+                        }
+                    ],
+                    "price": 18900,
+                    "device": [
+                        {
+                            "storage": [
+                                {
+                                    "id":"storage1",
+                                    "storage": 64,
+                                    "storagetxt": "64GB",
+                                    "fit": 0
+                                },
+                                {
+                                    "id":"storage2",
+                                    "storage": 256,
+                                    "storagetxt": "256GB",
+                                    "fit": 5000
+                                }
+                            ]
+                        },
+                        {
+                            "internet": [
+                                {
+                                    "id":"internet0",
+                                    "net": "WiFi",
+                                    "nettxt": "Wi-Fi",
+                                    "fit": 0
+                                },
+                                {
+                                    "id":"internet1",
+                                    "net": "WiFi_cellulardata",
+                                    "nettxt": "Wi-Fi + 行動網路",
+                                    "fit": 4300
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+    <script>
+        ////window
+        window.onload = function () {
+            createExteriorBtn()
+            createStorageBtn()
+            createInternetBtn()
+            btnClick()
+        }
+        //#region 標題
+        let h1 = document.createElement('h1')
+        h1.innerText = appleArray[0].product
+        h1.classList.add('fs-1', 'fw-bolder')
+        let pOfH1 = document.createElement('p')
+        pOfH1.innerText = appleArray[0].product
+        pOfH1.classList.add('fs-1', 'fw-bolder')
+        //把標題放入html //rwd h1在手機看得到  p在ipad以上看得到
+        let divTitle = document.getElementById('titleh1div')
+        divTitle.appendChild(h1)
+        let divTitleOfP = document.getElementById('titlepdiv')
+        divTitleOfP.appendChild(pOfH1)
+        //#endregion
+
+        //#region 照片區域
+        let iPadImg = document.createElement('img')
+        iPadImg.setAttribute('src', 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=886&hei=1070&fmt=jpeg&qlt=80&.v=1599066777000')
+        iPadImg.classList.add('img-fluid')
+
+        //把照片放到html
+        let divOfPic = document.getElementsByClassName('pic_ipadair')[0]
+        divOfPic.appendChild(iPadImg)
+        //#endregion
+
+        //#region  收合
+        //建button
+        //建h2 header
+        //放到htmlid="accordionFlush"
+        let btnHeaderAccordion = document.createElement('button')
+        btnHeaderAccordion.classList.add('accordion-button', 'collapsed','fs-3','text-dark')
+        btnHeaderAccordion.setAttribute('data-bs-toggle', 'collapse')
+        btnHeaderAccordion.setAttribute('data-bs-target', '#flush-collapseOne')
+        btnHeaderAccordion.setAttribute('aria-expanded', 'false')
+        btnHeaderAccordion.setAttribute('aria-controls', 'flush-collapseOne')
+        btnHeaderAccordion.setAttribute('type', 'button')
+
+
+        let h2 = document.createElement('h2')
+        // h2.classList.add('accordion-header')
+        // h2.setAttribute('id', 'flush-headingOne')
+
+        h2.appendChild(btnHeaderAccordion)
+        let divOfAccordion = document.querySelector('.accordion-item')
+        divOfAccordion.appendChild(h2)
+
+        //第二區
+        let btnHeaderAccordion2 = document.createElement('button')
+        btnHeaderAccordion2.classList.add('accordion-button', 'collapsed','fs-3','text-dark')
+        btnHeaderAccordion2.setAttribute('data-bs-toggle', 'collapse')
+        btnHeaderAccordion2.setAttribute('data-bs-target', '#flush-collapseTwo')
+        btnHeaderAccordion2.setAttribute('aria-expanded', 'false')
+        btnHeaderAccordion2.setAttribute('aria-controls', 'flush-collapseTwo')
+        btnHeaderAccordion2.setAttribute('type', 'button')
+
+
+        let h2OfSection2= document.createElement('h2')
+        h2OfSection2.classList.add('accordion-header')
+        h2OfSection2.setAttribute('id', 'flush-headingTwo')
+
+        h2OfSection2.appendChild(btnHeaderAccordion2)
+        let divOfAccordion2 = document.querySelector('.accordion-item2')
+        divOfAccordion2.appendChild(h2OfSection2)
+
+        //第三區
+        let btnHeaderAccordion3 = document.createElement('button')
+        btnHeaderAccordion3.classList.add('accordion-button', 'collapsed','fs-3','text-dark')
+        btnHeaderAccordion3.setAttribute('data-bs-toggle', 'collapse')
+        btnHeaderAccordion3.setAttribute('data-bs-target', '#flush-collapseThree')
+        btnHeaderAccordion3.setAttribute('aria-expanded', 'false')
+        btnHeaderAccordion3.setAttribute('aria-controls', 'flush-collapseThree')
+        btnHeaderAccordion3.setAttribute('type', 'button')
+
+
+        let h2OfSection3= document.createElement('h2')
+        h2OfSection3.classList.add('accordion-header')
+        h2OfSection3.setAttribute('id', 'flush-headingThree')
+
+        h2OfSection3.appendChild(btnHeaderAccordion3)
+        let divOfAccordion3 = document.querySelector('.accordion-item3')
+        divOfAccordion3.appendChild(h2OfSection3)
+        
+        //#endregion
+
+        //#region 收合內的內容
+        //放body的div
+        //accordion-body
+        let divOfFlushCollapseOne = document.createElement('div')
+        divOfFlushCollapseOne.classList.add('accordion-collapse', 'collapse')
+        divOfFlushCollapseOne.setAttribute('id', 'flush-collapseOne')
+        divOfFlushCollapseOne.setAttribute('aria-labelledby', 'flush-headingOne')
+        divOfFlushCollapseOne.setAttribute('data-bs-parent', '#accordionFlush')
+        divOfAccordion.appendChild(divOfFlushCollapseOne)
+
+        let divOfAccordionBody = document.createElement('div')
+        divOfAccordionBody.classList.add('accordion-body')
+        divOfFlushCollapseOne.appendChild(divOfAccordionBody)
+
+        //第二區收合內的內容
+        let divOfFlushCollapseTwo = document.createElement('div')
+        divOfFlushCollapseTwo.classList.add('accordion-collapse', 'collapse')
+        divOfFlushCollapseTwo.setAttribute('id', 'flush-collapseTwo')
+        divOfFlushCollapseTwo.setAttribute('aria-labelledby', 'flush-headingTwo')
+        divOfFlushCollapseTwo.setAttribute('data-bs-parent', '#accordionFlush')
+        divOfAccordion2.appendChild(divOfFlushCollapseTwo)
+
+        let divOfAccordionBody2 = document.createElement('div')
+        divOfAccordionBody2.classList.add('accordion-body')
+        divOfFlushCollapseTwo.appendChild(divOfAccordionBody2)
+
+        //第三區收合內的內容
+        let divOfFlushCollapseThree = document.createElement('div')
+        divOfFlushCollapseThree.classList.add('accordion-collapse', 'collapse')
+        divOfFlushCollapseThree.setAttribute('id', 'flush-collapseThree')
+        divOfFlushCollapseThree.setAttribute('aria-labelledby', 'flush-headingThree')
+        divOfFlushCollapseThree.setAttribute('data-bs-parent', '#accordionFlush')
+        divOfAccordion3.appendChild(divOfFlushCollapseThree)
+
+        let divOfAccordionBody3 = document.createElement('div')
+        divOfAccordionBody3.classList.add('accordion-body')
+        divOfFlushCollapseThree.appendChild(divOfAccordionBody3)
+        //#endregion
+
+        //#region 1.span 外觀
+        let spanOfExterior = document.createElement('span')
+        spanOfExterior.classList.add('exterior', 'd-block', 'text-atart', 'fw-bold', 'fs-5', 'my-4')
+        spanOfExterior.innerText = '外觀'
+        divOfAccordionBody.appendChild(spanOfExterior)
+        //第二區 儲存裝置
+        let spanOfExterior2 = document.createElement('span')
+        spanOfExterior2.classList.add('exterior', 'd-block', 'text-atart', 'fw-bold', 'fs-5', 'my-4')
+        spanOfExterior2.innerText = '儲存裝置'
+        divOfAccordionBody2.appendChild(spanOfExterior2)
+        //第二區 儲存裝置
+        let spanOfExterior3 = document.createElement('span')
+        spanOfExterior3.classList.add('exterior', 'd-block', 'text-atart', 'fw-bold', 'fs-5', 'my-4')
+        spanOfExterior3.innerText = '連線能力'
+        divOfAccordionBody3.appendChild(spanOfExterior3)
+        //#endregion
+
+        //#region 2.btn的row
+        //btn的col-6 mb-3
+        //button
+        //a.    button的img 的div
+        //img
+        //b.    button的span
+        let rowOfExteriorBtn = document.createElement('div')
+        rowOfExteriorBtn.classList.add('row', 'd-flex')
+        divOfAccordionBody.appendChild(rowOfExteriorBtn)
+        //第二區 btn的row
+        let rowOfStorageBtn = document.createElement('div')
+        rowOfStorageBtn.classList.add('row', 'd-flex')
+        divOfAccordionBody2.appendChild(rowOfStorageBtn)
+        //第三區 btn的row
+        let rowOfInternetBtn = document.createElement('div')
+        rowOfInternetBtn.classList.add('row', 'd-flex')
+        divOfAccordionBody3.appendChild(rowOfInternetBtn)
+        //#endregion
+
+        //#region 創建每個btn
+        let moneyTxt,btnOfInternet,btnOfStorage
+        function createExteriorBtn() {
+            appleArray[0].colors.forEach(items => {
+                let colOfExteriorBtn = document.createElement('div')
+                colOfExteriorBtn.classList.add('col-6', 'mb-3')
+                rowOfExteriorBtn.appendChild(colOfExteriorBtn)
+
+                let btnOfExterior = document.createElement('button')
+                btnOfExterior.classList.add('btn', 'color_btn', 'd-flex', 'align-items-center', 'flex-column', 'py-3')
+                colOfExteriorBtn.appendChild(btnOfExterior)
+
+                let divOfBtnPic = document.createElement('div')
+                divOfBtnPic.classList.add('pic_color')
+                btnOfExterior.appendChild(divOfBtnPic)
+
+                let colorIconImg = document.createElement('img')
+                //變數: items['icon-color']
+                colorIconImg.src = items['icon-color']
+                colorIconImg.classList.add('img-fluid')
+                divOfBtnPic.appendChild(colorIconImg)
+
+                let colorIconSpan = document.createElement('span')
+                colorIconSpan.classList.add('color_txt')
+                //變數: items['icon-txt']
+                colorIconSpan.innerText = items['icon-txt']
+                btnOfExterior.appendChild(colorIconSpan)
+
+                btnOfExterior.setAttribute('id', items.sku)
+                //setAttribute('id',items.sku) items.sku是變數
+            })
+        }
+        function createInternetBtn(){
+            appleArray[0].device[1].internet.forEach(items => {
+                let colOfInternetBtn = document.createElement('div')
+                colOfInternetBtn.classList.add('col-6', 'mb-3')
+                rowOfInternetBtn.appendChild(colOfInternetBtn)
+
+                btnOfInternet = document.createElement('button')
+                btnOfInternet.classList.add('btn', 'color_btn', 'd-flex', 'align-items-center', 'flex-column', 'py-3')
+                colOfInternetBtn.appendChild(btnOfInternet)
+
+                let internetSpan = document.createElement('span')
+                internetSpan.classList.add('net_txt')
+                //變數: items['icon-txt']
+                internetSpan.innerText = items['nettxt']
+                btnOfInternet.appendChild(internetSpan)
+                //加入金額
+                moneyTxt=document.createElement('p')
+                moneyTxt.innerText=`NT$ ${items.fit+appleArray[0].price} 起`
+                btnOfInternet.appendChild(moneyTxt)
+                btnOfInternet.setAttribute('id', items.id)
+
+                btnOfInternet.addEventListener('click', function(){
+                    btnHeaderAccordion3.innerText=items['nettxt']
+                })
+            })
+        }  
+        function createStorageBtn(){
+            appleArray[0].device[0].storage.forEach(items => {
+                let colOfStorageBtn = document.createElement('div')
+                colOfStorageBtn.classList.add('col-6', 'mb-3')
+                rowOfStorageBtn.appendChild(colOfStorageBtn)
+
+                btnOfStorage = document.createElement('button')
+                btnOfStorage.classList.add('btn', 'color_btn', 'd-flex', 'align-items-center', 'flex-column', 'py-3')
+                colOfStorageBtn.appendChild(btnOfStorage)
+
+                let storageSpan = document.createElement('span')
+                storageSpan.classList.add('storage_txt')
+                //變數: items['icon-txt']
+                storageSpan.innerText = items['storagetxt']
+                btnOfStorage.appendChild(storageSpan)
+                //加入金額
+                moneyTxt=document.createElement('p')
+                moneyTxt.innerText=`NT$ ${items.fit+appleArray[0].price} 起`
+                btnOfStorage.appendChild(moneyTxt)
+                btnOfStorage.setAttribute('id', items.id)
+
+                btnOfStorage.addEventListener('click', function(){
+                    for(let i=0;i<2;i++){
+                        // btnOfStorage[i].removeChild(btnOfStorage[i].lastChild)
+                        // console.log(btnOfStorage[i]);
+                        btnHeaderAccordion2.innerText=items['storagetxt']
+                        let pOfMoneyChange =document.createElement('p')
+                        pOfMoneyChange.innerText=`NT$ ${items.fit+appleArray[0].price+appleArray[0].device[1].internet[i].fit}`
+                        let idOfBtnInternet=document.getElementById(`internet${i}`)
+                        idOfBtnInternet.appendChild(pOfMoneyChange)
+                        // let removeElement= document.getElementsByClassName(`#${items.id} p`)[1]
+                        // console.log(removeElement);
+                        // removeElement.remove()
+                    }  
+                })
+            })
+        }
+        //#endregion
+
+        //#region 給btn事件及changeimg
+        function btnClick() {
+            //迭代每個button(給buttton id)用id去找，放上click事件和換圖片
+            //變數是id
+            appleArray[0].colors.forEach(items => {
+                let btnOfId = document.getElementById(items.sku)
+                btnOfId.addEventListener('click', changeImg)
+                function changeImg() {
+                    iPadImg.src = items.img
+                    //button h2
+                btnHeaderAccordion.innerText=items['icon-txt']
+
+                }
+            })
+        }
+        //#endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

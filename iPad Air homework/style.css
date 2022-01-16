@@ -1,0 +1,46 @@
+.pic_ipadair {
+  width: 90%;
+}
+
+.ipadair_buy p {
+  display: none;
+}
+
+.color_btn {
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  color: #1d1d1f;
+}
+
+.pic_color {
+  width: 15%;
+}
+
+@media screen and (max-width: 767px) {
+  .btn.color_btn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .col-md-5.accordion.accordion-flush {
+    margin-left: 8.333333%;
+  }
+  .ipadair_buy p {
+    display: inline-block;
+  }
+  .ipadair_buy h1 {
+    display: none;
+  }
+  .pic_color {
+    width: 20%;
+  }
+  .color_txt {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .btn.color_btn {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

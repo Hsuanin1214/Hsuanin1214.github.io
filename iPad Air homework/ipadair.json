@@ -1,0 +1,79 @@
+[
+    {
+        "product": "購買 iPad",
+        "data-name": "ipadair",
+        "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=886&hei=1070&fmt=jpeg&qlt=80&.v=1599066777000",
+        "colors": [
+            {
+                "sku": "ipadair1",
+                "name": "Space Gray",
+                "icon-txt": "太空灰色",
+                "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422652805",
+                "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-spacegray-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650646000"
+            },
+            {
+                "sku": "ipadair2",
+                "name": "Silver",
+                "icon-txt": "銀色",
+                "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422655664",
+                "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-silver-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650645000"
+            },
+            {
+                "sku": "ipadair3",
+                "name": "Green",
+                "icon-txt": "綠色",
+                "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000",
+                "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-green-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+            },
+            {
+                "sku": "ipadair4",
+                "name": "Rose Gold",
+                "icon-txt": "玫瑰金色",
+                "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000",
+                "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-gold-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+            },
+            {
+                "sku": "ipadair5",
+                "name": "Sky Blue",
+                "icon-txt": "天藍色",
+                "icon-color": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1599240136000",
+                "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-wifi-blue-202009?wid=940&hei=1112&fmt=png-alpha&.v=1598650644000"
+            }
+        ],
+        "price": 18900,
+        "device": [
+            {
+                "storage": [
+                    {
+                        "id": "storage1",
+                        "storage": 64,
+                        "storagetxt": "64GB",
+                        "fit": 0
+                    },
+                    {
+                        "id": "storage2",
+                        "storage": 256,
+                        "storagetxt": "256GB",
+                        "fit": 5000
+                    }
+                ]
+            },
+            {
+                "internet": [
+                    {
+                        "id": "internet0",
+                        "net": "WiFi",
+                        "nettxt": "Wi-Fi",
+                        "fit": 0
+                    },
+                    {
+                        "id": "internet1",
+                        "net": "WiFi_cellulardata",
+                        "nettxt": "Wi-Fi + 行動網路",
+                        "fit": 4300
+                    }
+                ]
+            }
+        ]
+    }
+]
