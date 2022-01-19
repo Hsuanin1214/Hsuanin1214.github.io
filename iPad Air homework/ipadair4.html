@@ -95,13 +95,13 @@
                         {
                             "storage": [
                                 {
-                                    "id": "storage1",
+                                    "id": "storage0",
                                     "storage": 64,
                                     "storagetxt": "64GB",
                                     "fit": 0
                                 },
                                 {
-                                    "id": "storage2",
+                                    "id": "storage1",
                                     "storage": 256,
                                     "storagetxt": "256GB",
                                     "fit": 5000
@@ -428,19 +428,21 @@
             let divOfSumMoney=document.querySelector('.summoney')
             divOfSumMoney.appendChild(sumOfMoney)
 
-            for(let i=1;i<3;i++){
-                    let btnOfStorage=document.querySelector(`#storage${i}`)
-                    btnOfStorage.addEventListener('click',function(){
-                        pOfMoney.innerText=`NT$ ${appleArray[0].device[0].storage[i].fit+appleArray[0].price}`
-                        sumOfMoney.innerText=pOfMoney.innerText
-                    })
-            }
-            let btnOfStorage64=document.querySelector('#storage1')
+            // for(let i=1;i<3;i++){
+            //         let btnOfStorage=document.querySelector(`#storage${i}`)
+            //         btnOfStorage.addEventListener('click',function(){
+            //             pOfMoney.innerText=`NT$ ${appleArray[0].device[0].storage[i].fit+appleArray[0].price}`
+            //             sumOfMoney.innerText=pOfMoney.innerText
+            //         })
+            // }
+
+            let btnOfStorage64=document.querySelector('#storage0')
             btnOfStorage64.addEventListener('click',function(){
                 pOfMoney.innerText=`NT$ ${appleArray[0].device[0].storage[0].fit+appleArray[0].price}`
                 sumOfMoney.innerText=pOfMoney.innerText
             })
-            let btnOfStorage256=document.querySelector('#storage2')
+
+            let btnOfStorage256=document.querySelector('#storage1')
             btnOfStorage256.addEventListener('click',function(){
                 pOfMoney.innerText=`NT$ ${appleArray[0].device[0].storage[1].fit+appleArray[0].price}`
                 sumOfMoney.innerText=pOfMoney.innerText
