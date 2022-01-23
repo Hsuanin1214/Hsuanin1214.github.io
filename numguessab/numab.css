@@ -1,0 +1,36 @@
+body{
+    background-color: #211E55;
+}
+#start,#answer,#reset,#inputGroupPrepend3,#btnguess{
+    color: white;
+    font-weight: 600;
+}
+#start,#answer{
+    background-color: #4E4F97;
+}
+#reset{
+    background-color: #005CAF;
+}
+#inputGroupPrepend3,#btnguess{
+    background-color: #E7316A;
+}
+.input-group{
+    width: 330px;
+}
+.list-group-item,.answerput{
+    border-color: #70649A;
+    color: aliceblue;
+    background-color: #211E55;
+}
+.list-group-item{
+    width: 150px;
+}
+.answerput{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border: 1px solid #70649A;
+    width: 90px;
+    height: 38px;
+    border-radius: 5%;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./numab.css">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row btn-toolbar">
+            <div class="col-12 me-2 d-flex align-items-center">
+                <button type="button" class="btn me-2" id="start">開始</button>
+                <button type="button" class="btn me-2 "  id="reset">放棄重來</button>
+                <button type="button" class="btn me-2" id="answer">看答案</button>
+                <div class="answerput"></div>
+            </div>
+        </div>
+        <div class="row list mt-3">
+            <div class="col-12">
+                <ul class="list-group" id="ul">
+                    <!-- <li class="list-group-item d-flex">
+                        <div>
+                            <span class="badge bg-danger" id="spanwrong">2A2B</span>
+                        </div>
+                        <p class="flex-grow-1 ms-3" id="numshow">2134</p>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        <div>
+                            <span class="badge bg-success"id="spanright">4A0B</span>
+                        </div>
+                        <p class="flex-grow-1 ms-3">1874</p>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3 getanswer">
+            <div class="col-12">
+                <div class="input-group has-validation ">
+                    <span class="input-group-text" id="inputGroupPrepend3">猜答案</span>
+                    <input type="text" class="form-control " id="formGroupExampleInput" placeholder="請輸入四個不重複的數字">
+                    <!-- onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))" -->
+                    <button type="button" class="btn btn-secondary" id="btnguess">猜</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+    <script>
+        //宣告答案跟猜是空陣列
+        let answer=[]
+        let guess=[]
+        //dom
+        const startBtn=document.querySelector('#start')
+        const resetBtn=document.getElementById('reset')
+        const answerBtn=document.querySelector('#answer')
+        const guessBtn=document.getElementById('btnguess')
+        const input=document.querySelector('#formGroupExampleInput')
+        const answerPut=document.querySelector('.answerput')
+
+        const ul=document.querySelector('#ul')
+        
+        //window.onload
+        window.onload=function(){
+            resetMethod()
+            startBtn.disabled=false
+            //開始遊戲按鈕
+            startBtn.onclick=function(){
+                answer=getAnswer()
+                input.disabled=false
+                guessBtn.disabled=false
+                answerBtn.disabled=false
+                this.disabled=true
+            }
+            //重來按鈕
+            resetBtn.onclick=function(){
+                resetMethod()
+                startBtn.disabled=false
+                answerPut.innerText=''
+                input.value=''
+            }
+            //答案按鈕
+            answerBtn.onclick=function(){
+                showAnswer()
+                this.disabled=true
+                guessBtn.disabled=true
+            }
+            //猜按鈕
+            guessBtn.onclick=function(){
+                guessAnswer()
+            }
+        }
+        function getAnswer(){
+            let result=[]
+            //當陣列長度不等於4時
+            while(result.length!=4){
+                //random 0~1 不包含1 *10
+                let randomNum=Math.floor(Math.random()*10)
+                //當陣列裡面的數字不包含時才會把數字再加進去
+                if(!result.includes(randomNum)){
+                    result.push(randomNum)
+                }
+            }
+            return result
+        }
+        function showAnswer(){
+            answerPut.innerText=answer.join('')
+            console.log(answerPut);
+        }
+        function guessAnswer(){
+            const li=document.createElement('li')
+            li.setAttribute('class','list-group-item mt-2 rounded-2')
+            const p=document.createElement('p')
+            p.setAttribute('class','text-center d-inline-block')
+            p.setAttribute('id','numshow')
+            
+            guess=input.value.split('').map(x=>parseInt(x))
+
+            if(guess.filter((x,index,arr)=>arr.indexOf(x)==index).length!=4){
+                alert('請輸入四個0~9的數字')
+            }
+            else{
+                p.innerText=input.value
+                li.append(p)
+                ul.appendChild(li)
+    
+                let spanWrong=document.createElement('span')
+                spanWrong.setAttribute('class','badge bg-danger me-3')
+                spanWrong.setAttribute('id','spanwrong')
+                let spanRight=document.createElement('span')
+                spanRight.setAttribute('class','badge bg-success  me-3')
+                spanRight.setAttribute('id','spanright')
+                //交集(indexOf(x)找不到是-1)(當不等於-1時，就會找到一樣的)數字一樣
+                let intersect=guess.filter(x=>answer.indexOf(x) != -1)
+                //indexOf:數字一樣位置也一樣
+                let a=intersect.filter(x=>answer.indexOf(x)==guess.indexOf(x)).length
+                //交集的個數-a(數字一樣跟順序一樣)
+                let b=intersect.length - a
+                if(a==4){
+                    spanRight.innerText=`4A0B`
+                    li.prepend(spanRight)
+                    alert('恭喜答對!!灑花!')
+                }else{
+                    spanWrong.innerText=`${a}A${b}B`
+                    li.prepend(spanWrong)
+                }
+            }
+        }
+        function resetMethod(){
+            let obj=document.getElementById('ul')
+            obj.innerHTML=''
+            input.disabled=true
+            startBtn.disabled=true
+            guessBtn.disabled=true
+            answerBtn.disabled=true
+        }
+    </script>
+
+</body>
+
+</html>
