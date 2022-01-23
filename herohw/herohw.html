@@ -76,8 +76,12 @@
         const url ='https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json'
         const heroBox = document.querySelector('.hero-card-box')
         let cardTemplate = document.querySelector('#cardChampion')
-
-
+        let modal=document.querySelector("#exampleModal");    
+        let hp=document.createElement('li')
+        let moveSpeed=document.createElement('li')
+        let armor=document.createElement('li')
+        let spellBlock=document.createElement('li')
+        let attackRange=document.createElement('li')
 
         let xhr = new XMLHttpRequest()
         xhr.onload = function () {
@@ -85,11 +89,8 @@
             let c=heros.data
             console.log(c);
             Object.keys(c).forEach((hero,index)=>{
-                // console.log(index)
                 let oneHero=c[hero]
-                // console.log(c[hero]);
                 heroShow(oneHero.id,oneHero.name,oneHero.blurb,index,oneHero.stats)
-
             })
         }
         xhr.open("GET", url)
@@ -106,24 +107,23 @@
 
             const img =cloneCard.querySelector('.card-img-top')
             img.src= `https://cdngarenanow-a.akamaihd.net/games/lol/2020/LOLwebsite/champion/${name}_0.jpg`
-
-            let modal=document.querySelector("#exampleModal");
-            modal.querySelector('h5').innerText=title.innerText
-            let hp=document.createElement('li')
-            let moveSpeed=document.createElement('li')
-            let armor=document.createElement('li')
-            let spellBlock=document.createElement('li')
-            let attackRange=document.createElement('li')
-
+            
             cloneCard.querySelector('#btncontent').onclick=function(){
-                // modalBody.innerHTML=""
+                modal.querySelector('.modal-body').innerHTML=''
                 hp.innerText=`HP: ${stats.hp}`
                 moveSpeed.innerText=`Move Speed: ${stats.movespeed}`
                 armor.innerText=`Armor: ${stats.armor}`
                 spellBlock.innerText=`Spell Block: ${stats.spellblock}`
                 attackRange.innerText=`Attack Range: ${stats.attackrange}`
-                modal.querySelector('#heroimage').src=img.src
+                modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
+                modal.querySelector('#heroimage').src=`https://cdngarenanow-a.akamaihd.net/games/lol/2020/LOLwebsite/champion/${name}_0.jpg`
                 modal.querySelector('.modal-body').append(hp,moveSpeed,armor,spellBlock,attackRange)
+            }
+            cloneCard.querySelector('#btnmovie').onclick=function(){
+                modal.querySelector('.modal-body').innerHTML=''
+                modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
+                const video = '<iframe width="350" height="315" src="https://www.youtube.com/embed/H2hNJJ2WESc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                modal.querySelector('.modal-body').innerHTML=video
             }
 
             heroBox.append(cloneCard)
