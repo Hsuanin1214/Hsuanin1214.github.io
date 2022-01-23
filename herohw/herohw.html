@@ -117,14 +117,14 @@
                 attackRange.innerText=`Attack Range: ${stats.attackrange}`
                 modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
                 modal.querySelector('#heroimage').src=`https://cdngarenanow-a.akamaihd.net/games/lol/2020/LOLwebsite/champion/${name}_0.jpg`
-                modal.querySelector('.modal-body').append(hp,moveSpeed,armor,spellBlock,attackRange)
+                modal.querySelector('.modal-body').innerHTML=hp,moveSpeed,armor,spellBlock,attackRange
             }
-            cloneCard.querySelector('#btnmovie').onclick=function(){
-                modal.querySelector('.modal-body').innerHTML=''
-                modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
-                const video = '<iframe width="350" height="315" src="https://www.youtube.com/embed/H2hNJJ2WESc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-                modal.querySelector('.modal-body').innerHTML=video
-            }
+            // cloneCard.querySelector('#btnmovie').onclick=function(){
+            //     // modal.querySelector('.modal-body').innerHTML=''
+            //     modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
+            //     const video = '<iframe width="350" height="315" src="https://www.youtube.com/embed/H2hNJJ2WESc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+            //     modal.querySelector('.modal-body').innerHTML=video
+            // }
 
             heroBox.append(cloneCard)
             console.log(heroBox);
