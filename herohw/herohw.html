@@ -117,7 +117,7 @@
                 attackRange.innerText=`Attack Range: ${stats.attackrange}`
                 modal.querySelector('h5').innerText=`${index + 1}.${name}-${chname}`
                 modal.querySelector('#heroimage').src=`https://cdngarenanow-a.akamaihd.net/games/lol/2020/LOLwebsite/champion/${name}_0.jpg`
-                modal.querySelector('.modal-body').innerHTML=hp,moveSpeed,armor,spellBlock,attackRange
+                modal.querySelector('.modal-body').append(hp,moveSpeed,armor,spellBlock,attackRange)
             }
             // cloneCard.querySelector('#btnmovie').onclick=function(){
             //     // modal.querySelector('.modal-body').innerHTML=''
