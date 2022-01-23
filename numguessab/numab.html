@@ -134,7 +134,7 @@
             
             guess=input.value.split('').map(x=>parseInt(x))
 
-            if(guess.filter((x,index,arr)=>arr.indexOf(x)==index).length!=4){
+            if(guess.length!=4){
                 alert('請輸入四個0~9的數字')
             }
             else{
