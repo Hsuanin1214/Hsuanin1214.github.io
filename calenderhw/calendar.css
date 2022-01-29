@@ -2,6 +2,9 @@
     background-color: #BDC0BA;
     position: relative;
 } 
+h1,#fri,#sat{
+    color: #DB8E71;
+}
 .picbox{
     position: absolute;
     z-index: 1;
