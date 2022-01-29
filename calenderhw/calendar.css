@@ -99,7 +99,7 @@ th,td{
         width: 38%;
     }
     .pic{
-        width: 120%;
+        width: 100%;
     }
 }
 @media screen and (min-width:1200px) {
@@ -125,10 +125,7 @@ th,td{
     th{
         font-size: 45px;
     }
-
-    th,td{
-        width: 65px;
-        height: 65px;
+    .pic{
+        width: 100%;
     }
-
 } 
