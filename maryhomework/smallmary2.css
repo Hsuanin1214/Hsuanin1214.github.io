@@ -1,0 +1,80 @@
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus{
+    outline: none;
+    box-shadow: none;
+}
+i {
+    font-size: 30px;
+}
+[box-id]{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: 0.3s;
+}
+[box-id].active{
+    border: solid 5px #EB7A77;
+    box-shadow: 0 0 20px #EB7A77;
+    transition: 0s;
+}
+.apple{
+    color: #D0104C;
+}
+.gem{
+    color: #81C7D4;
+}
+.lemon{
+    color: #1B813E;
+}
+.bell{
+    color: #F7D94C;
+}
+.star{
+    color: #F75C2F;
+}
+.fa-wallet{
+    color: #006284;
+}
+.fa-comment-dollar{
+    color: #F17C67;
+}
+.fa-money-bill-wave{
+    color: #707C74;
+}
+.fa-angle-double-right{
+    color: #1E88A8;
+}
+.betcol{
+    border: solid 1px #373C38;
+    border-radius: 5px;
+    /* margin-left: 5px; */
+}
+.btn{
+    font-weight: 700;
+    color: aliceblue;
+}
+.betbtn{
+    background-color: #F17C67;
+}
+.resetbetbtn,.resetmoneybtn{
+    background-color: #006284;
+}
+.addmoneybtn{
+    background-color: #FFB11B;
+}
+input{
+    border: solid 2px #967249;
+    border-radius: 5px;
+}
+.walletspan,.betspan,.walletmoney,.totalbet,.name,.score{
+    font-size: 20px;
+    font-weight: 700;
+    color: #707C74;
+}
+

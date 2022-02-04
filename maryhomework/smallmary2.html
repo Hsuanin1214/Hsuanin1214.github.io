@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./smallmary2.css">
+    <title>smallmary</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-6">
+                <i class="fas fa-wallet "></i>
+                <span class="walletspan">你的錢包:</span>
+                <span class="walletmoney">0</span>
+            </div>
+            <div class="col-6">
+                <i class="fas fa-comment-dollar"></i>
+                <span class="betspan">共下注: </span>
+                <span class="totalbet">0</span>
+            </div>
+        </div>
+        <!-- 要知道格子怎麼跑，所以要給id ；col-10因為不會跑，所以不用給id-->
+        <!-- 1 row -->
+        <div class="row">
+            <div box-id="1" class="col-3 apple"></div>
+            <div box-id="2" class="col-3 gem"></div>
+            <div box-id="3" class="col-3 lemon"></div>
+            <div box-id="4" class="col-3 bell"></div>
+        </div>
+        <!-- 2 row -->
+        <div class="row">
+            <div box-id="12" class="col-3 apple"></div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary w-50 start">START</button>
+            </div>
+            <div box-id="5" class="col-3 lemon"></div>
+        </div>
+        <!-- 3 row -->
+        <div class="row">
+            <div box-id="11" class="col-3 oncemore"></div>
+            <div class="col-6 d-flex justify-content-center flex-column">
+                <p class="text-center name">水果老虎機</p>
+                <span id="bet" class="text-center score">佛心經營，無法加注</span>
+            </div>
+            <div box-id="6" class="col-3 apple"></div>
+        </div>
+        <!-- 4 row -->
+        <div class="row">
+            <div box-id="10" class="col-3 bell"></div>
+            <div box-id="9" class="col-3 lemon"></div>
+            <div box-id="8" class="col-3 apple"></div>
+            <div box-id="7" class="col-3 lemon"></div>
+        </div>
+        <div class="row text-center mt-3 justify-content-evenly">
+            <div class="col-2 ">
+                <div class="betcol">
+                    <span class="badge rounded-pill d-block bg-secondary w-50 m-auto mb-2">MONEY</span>
+                    <i class="fas fa-money-bill-wave d-block mb-2"></i>
+                    <div class="d-flex justify-content-center">
+                        <input class="w-50 my-2 text-center d-inline-block addmoneyinput"
+                            onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))"></input>
+                        <p class="my-auto text-start">元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 btncol">
+                <div class="d-flex flex-column">
+                    <button type="button" class="btn my-2 addmoneybtn" onclick="addMoney()">加錢</button>
+                    <button type="button" class=" btn my-2 resetmoneybtn" onclick="resetAddMoney()">算惹</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="betcol">
+                    <span class="badge rounded-pill d-block bg-secondary w-50 m-auto mb-2">50</span>
+                    <i class="far fa-gem gem d-block mb-2"></i>
+                    <div class="d-flex justify-content-center">
+                        <input class="w-50 my-2 text-center d-inline-block geminput" id='input1'
+                            onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))"></input>
+                        <p class="my-auto text-start">元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="betcol">
+                    <span class="badge rounded-pill d-block bg-secondary w-50 m-auto mb-2">20</span>
+                    <i class="fas fa-bell bell d-block mb-2"></i>
+                    <div class="d-flex justify-content-center">
+                        <input class="w-50 my-2 text-center d-inline-block bellinput" id='input2'
+                            onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))"></input>
+                        <p class="my-auto text-start">元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="betcol">
+                    <span class="badge rounded-pill d-block bg-secondary w-50 m-auto mb-2">10</span>
+                    <i class="fas fa-lemon lemon d-block mb-2"></i>
+                    <div class="d-flex justify-content-center">
+                        <input class="w-50 my-2 text-center d-inline-block lemoninput" id='input3'
+                            onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))"></input>
+                        <p class="my-auto text-start">元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="betcol">
+                    <span class="badge rounded-pill d-block bg-secondary w-50 m-auto mb-2">5</span>
+                    <i class="fas fa-apple-alt apple d-block mb-2"></i>
+                    <div class="d-flex justify-content-center">
+                        <input class="w-50 my-2 text-center d-inline-block appleinput " id='input4'
+                            onkeyup="value=(value.replace(/\D/g,'')==''?'':parseInt(value))"></input>
+                        <p class="my-auto text-start">元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="d-flex flex-column">
+                    <button type="button" class="btn my-2  betbtn" onclick="addBet()">下注</button>
+                    <button type="button" class="btn my-2 resetbetbtn" onclick="clearBet()">重下</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script>
+        //共12個格子，分別設定資料結構，共有12個物件
+        //設定格子資料
+        //target: 方法:下注的錢*倍率
+        let bricksData = [
+            {
+                id: '1',
+                icon: 'fas fa-apple-alt',
+                target: function () {
+                    return parseInt(appleInput.value) * 5
+                }
+            },
+            {
+                id: '2',
+                icon: 'far fa-gem',
+                target: function () {
+                    return parseInt(gemInput.value) * 50
+                }
+            },
+            {
+                id: '3',
+                icon: 'fas fa-lemon',
+                target: function () {
+                    return parseInt(lemonInput.value) * 10
+                }
+            },
+            {
+                id: '4',
+                icon: 'fas fa-bell',
+                target: function () {
+                    return parseInt(bellInput.value) * 20
+                }
+            },
+            {
+                id: '5',
+                icon: 'fas fa-lemon',
+                target: function () {
+                    return parseInt(lemonInput.value) * 10
+                }
+            },
+            {
+                id: '6',
+                icon: 'fas fa-apple-alt',
+                target: function () {
+                    return parseInt(appleInput.value) * 5
+                }
+            },
+            {
+                id: '7',
+                icon: 'fas fa-lemon',
+                target: function () {
+                    return parseInt(lemonInput.value) * 10
+                }
+            },
+            {
+                 //重來
+                id: '8',
+                icon: 'fas fa-angle-double-right',
+                target: function () {
+                    return '重來一次!'
+                }
+            },
+            {
+                id: '9',
+                icon: 'fas fa-lemon',
+                target: function () {
+                    return parseInt(lemonInput.value) * 10
+                }
+            },
+            {
+                id: '10',
+                icon: 'fas fa-bell',
+                target: function () {
+                    return parseInt(bellInput.value) * 20
+                }
+            },
+            {
+                //重來
+                id: '11',
+                icon: 'fas fa-angle-double-right',
+                target: function () {
+                    return '重來一次!'
+                }
+            },
+            {
+                id: '12',
+                icon: 'fas fa-apple-alt',
+                target: function () {
+                    return parseInt(appleInput.value) * 5
+                }
+            }
+        ]
+        //因為都會改變，所以用let
+        let steps = 0 //剩下要走的步數
+        let allSteps = 0//全部的步數
+        let currentIndex = 0//目前要走哪一格
+
+        let speed = 85 //速率(值越大代表越慢)(把速率變成變數要多少都可以在這裡改)
+
+        let wallet = 0//錢包變數
+
+        //dom
+        //抓到所有格子
+        let bricks = document.querySelectorAll('[box-id]')
+        const starBtn = document.querySelector('.start')
+        let betSpan = document.getElementById('bet')
+
+        let walletMoney = document.querySelector('.walletmoney')
+        let addMoneyInput = document.querySelector('.addmoneyinput')
+        const addmoneyBtn=document.querySelector('.addmoneybtn')
+
+
+        let gemInput = document.querySelector('#input1')
+        let bellInput = document.querySelector('#input2')
+        let lemonInput = document.querySelector('#input3')
+        let appleInput = document.querySelector('#input4')
+        let totalBet = document.querySelector('.totalbet')
+
+        //window
+        window.onload = function () {
+            //要排序格子-> sort 是array的方法，所以要把物件變成array
+            //自定義屬性
+            //抓nodeList的節點 =[box-id].value
+            //value就是後面的值
+            bricks = Array.from(bricks).sort((a, b) => {
+                return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+            })
+
+            //將資料塞進格子
+            bricks.forEach((box) => {
+                let id = box.getAttributeNode('box-id').value
+                let data = bricksData.find((x) => x.id == id)
+
+                let i = document.createElement('i')
+                i.setAttribute('class', data.icon)
+                box.appendChild(i)
+            })
+
+            //按下start
+            //要設全域變數
+            starBtn.onclick = function () {
+                speed
+                //產生亂數(1~12)//至少要走一步
+                let random = Math.floor(Math.random() * bricksData.length) + 1
+                //還沒開始走，都是亂數
+                // +2(*bricks.length)讓他跑幾圈//v2
+                steps = random +(2*bricks.length)
+                allSteps = steps
+                //開始走的方法
+                turnAround()
+                this.disabled=true
+            }
+        }
+
+        //function
+        function turnAround() {
+            //走下一步之前，要先把active拿掉
+            bricks[currentIndex].classList.remove('active')
+            //走下一步
+            currentIndex++
+            //如果超過格子的長度，目前步數就會=0
+            if (currentIndex >= bricks.length) currentIndex = 0
+            bricks[currentIndex].classList.add('active')
+            //剩下的步數要減一格
+            steps--
+            //走完一步之後的判斷
+            if (steps > 0) {
+                //還沒走完 setTimeout(turnAround,50) 0.05秒再呼叫自己做一次
+                //自己的方法呼叫自己:遞迴
+                setTimeout(turnAround, speed)
+                //加入變數 ，當剩餘步數剩1/3的時候，做減速
+                if (steps < Math.floor((allSteps / 3))) speed += 6 //v2做變速
+            } else {
+                //走完了
+                //得到錢(中獎)
+                let magnification = bricksData[currentIndex].target()
+                betSpan.innerText = `${magnification}`
+                if (magnification == '重來一次!') {
+                    delay().then(function () {
+                        return delay(1000);
+                    }).then(function () {
+                        again()
+                    })
+                }
+                else {
+                    wallet = parseInt(walletMoney.innerText) + magnification
+                    walletMoney.innerText = `${wallet}`
+                    starBtn.disabled=false
+                }
+            }
+        }
+        //延遲
+        var delay = function (s) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(resolve, s);
+            });
+        };
+        //重來的方法
+        function again() {
+            let random = Math.floor(Math.random() * bricksData.length) + 1
+            console.log(random);
+            steps = random + (2 * bricks.length)
+            turnAround()
+        }
+
+        //錢包加錢
+        function addMoney() {
+        wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
+        walletMoney.innerText = `${wallet}`
+        addMoneyInput.value = ''
+        }
+        //錢包取消加錢
+        function resetAddMoney() {
+            addMoneyInput.value = ''
+        }
+
+        let inputArray = [gemInput, bellInput, lemonInput, appleInput]
+        let addbetMoney = 0
+        //只要沒下注的錢都是0
+        inputArray.forEach((item) => {
+            item.value = 0
+        })
+        //下注時
+        function addBet() {
+            addbetMoney = 0
+            totalBet.innerText = '0'
+            let everyBet
+            //計算全部的bet,加總
+            inputArray.forEach((item) => {
+                everyBet = parseInt(item.value)
+                addbetMoney += everyBet
+            })
+            //錢包下注時
+            //錢包大於等於下注錢
+            if (wallet >= addbetMoney && wallet != 0) {
+                starBtn.disabled = false
+                totalBet.innerText = `${addbetMoney}`
+                if (wallet > 0) {
+                    starBtn.disabled = false
+                    wallet = parseInt(walletMoney.innerText) - addbetMoney
+                    walletMoney.innerText = `${wallet}`
+                } else {
+                    alert('不先去借錢嗎?你口袋空空ㄟ')
+                    starBtn.disabled = true
+                }
+            }
+            else {
+                if (wallet < addbetMoney) {
+                    alert('溫馨提醒:先把口袋補滿才能一次梭哈!')
+                    walletMoney.innerText = `${wallet}`
+                    starBtn.disabled = true
+                }
+            }
+        }
+        //2.重下btn
+        function clearBet() {
+            if (wallet > 0) {
+                inputArray.forEach((item) => {
+                    item.value = ''
+                })
+                totalBet.innerText = '0'
+            } else {
+                alert('不要給我偷偷按開始，你不能沒錢還沒道德!')
+                starBtn.disabled = true
+            }
+        }
+    </script>
+
+</body>
+
+</html>
