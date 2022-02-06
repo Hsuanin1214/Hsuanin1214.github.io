@@ -83,7 +83,7 @@
         }
 
         h2,
-        label{
+        label {
             color: #baebfc;
         }
 
@@ -91,12 +91,14 @@
             background-color: #61a5c2;
             color: #023357;
         }
-        .select{
+
+        .select {
             background-color: #014f86;
             color: aliceblue;
             font-weight: 700;
         }
-        span{
+
+        span {
             color: #023357;
         }
     </style>
@@ -246,8 +248,6 @@
                     })
                     // console.log(selectCity);
 
-
-
                     //初始設定地圖
                     setMarker()
 
@@ -277,7 +277,6 @@
                     // let siteAddr=Object.values(site)[3]
                     // console.log(siteAddr);
                     // })
-
 
                     // //每一個縣市的物件
                     // roadData=roadRes.data
@@ -385,24 +384,35 @@
                     marker.addEventListener('click', function () {
                         areaText.innerText = `${x.City} - ${x.District}`
                         tBody.innerHTML = ''
-
-
+                        let tr
+                        let td
                         selectCity.filter(city => city.CityDistrict == x.CityDistrict).forEach((town, index) => {
-                            let tr = document.createElement('tr')
+                            tr = document.createElement('tr')
                             tr.innerText = `${index + 1}`
                             let num = selectCity.filter(city => city.CityDistrict == x.CityDistrict).length - 1
-                            numSpan.innerText = `附近尚有 :${num} 個`
+                            numSpan.innerText = `附近尚有 :${num} 個熱點`
 
                             console.log(town);
                             for (let i = 0; i < 2; i++) {
-                                let td = document.createElement('td')
+                                td = document.createElement('td')
                                 let row = Object.values(town)[i]
                                 td.innerText = row
                                 tr.append(td)
                             }
                             tBody.append(tr)
-                        })
+                            tr.onclick = function () {
 
+                                Object.keys(iTaiwanAreaData).forEach(distr => {
+                                    let data = iTaiwanAreaData[distr]
+                                    data.forEach(x => {
+                                        if (x.CityDistrict == Object.values(town)[2]) {
+                                            map.setView([x.Lat, x.Lng], 19)//setView 移動焦點(經緯度,zoom) 12=zoom
+                                        }
+                                    })
+                                })
+                            }
+                        })
+                        console.log(tr);
                     })
                     // console.log(marker);
                     markers.addLayer(marker)
