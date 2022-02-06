@@ -27,7 +27,8 @@
         .btn.focus,
         .btn:active.focus,
         .btn.active.focus,
-        input,textarea,
+        input,
+        textarea,
         button:focus {
             outline: none !important;
             box-shadow: none !important;
@@ -107,39 +108,47 @@
             line-height: 0 !important;
             padding: 0 !important;
         }
-        .modal-content{
+
+        .modal-content {
             background-color: #bcb8b1;
         }
-        #jumpdate,.modal-title{
+
+        #jumpdate,
+        .modal-title {
             font-weight: 700;
             color: #463f3a;
         }
-        #jumpdiv{
+
+        #jumpdiv {
             height: 100vh;
         }
-        #itembtn{
-            color:#f3d8c7;
+
+        #itembtn {
+            color: #f3d8c7;
             font-weight: 500;
         }
-        input, textarea{
+
+        input,
+        textarea {
             margin-bottom: 2%;
             text-align: center;
             border-radius: 5px;
             background-color: #fbfbf2;
-            resize:vertical;
+            resize: vertical;
             border: solid 1px whitesmoke;
 
         }
-        li{
+
+        li {
             margin-bottom: 2%;
             color: #463f3a;
             font-weight: 700;
         }
-        input{
+
+        input {
             display: block;
             border: solid 2px #463f3a;
         }
-
     </style>
 </head>
 
@@ -290,17 +299,17 @@
         const title = document.querySelector('h1')
         const arrowBtn = document.getElementById('')
 
-
         const addModal = document.getElementById('add-modal')
         const addDate = document.getElementById('add-date')
         const addTitle = document.getElementById('add-title')
-        const addTxt= document.getElementById('add-txt')
+        const addTxt = document.getElementById('add-txt')
 
         const editModal = document.getElementById('edit-modal')
         const editDate = document.getElementById('edit-date')
         const editTitle = document.getElementById('edit-title')
-        const editTxt= document.getElementById('edit-txt')
+        const editTxt = document.getElementById('edit-txt')
 
+        //裝代辦事項的modal 及item btn
         const jumpModal = document.getElementById('jump-modal')
         const jumpDiv = document.querySelector('.jumpdiv')
         const jumpBtn = document.querySelector('.jumpbtn')
@@ -356,40 +365,46 @@
                         if (day <= lastDay) {
                             //這個月
                             let testDay = day.toString().padStart(2, '0')
-                            console.log(testDay);
                             td.innerText = day.toString().padStart(2, '0')
                             //渲染畫面
-                            //如果現在是空的我就新增一個代辦事項給他
-                            //getItem(`${year}-${month+1}-${day}`)!=null?
+
+                            //點下item(itemButton)時，不管裡面有沒有代辦事項都可以點擊
                             itemButton.onclick = function () {
-                                jumpDiv.innerHTML=''
+                                //清空事項列表
+                                jumpDiv.innerHTML = ''
                                 bootstrap.Modal.getOrCreateInstance(jumpModal).show()
 
                                 jumpDate.innerText = `${year}-${month + 1}-${td.childNodes[0].data}`
+                                //點到jump modal的body時
                                 jumpDiv.onclick = function () {
-                                    
+                                    addTitle.value = ''
+                                    addTxt.value = ''
                                     //bootsrtap.modal.getOrCreateInstance(addModel).show()//.hide()//控制modal(bootstrap的語法)
                                     bootstrap.Modal.getOrCreateInstance(addModal).show()
                                     addDate.value = jumpDate.innerText
                                     console.log(addDate.value);
                                     bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
                                 }
+                                //點到icon + 時
                                 jumpBtn.onclick = function () {
+                                    addTitle.value = ''
+                                    addTxt.value = ''
                                     bootstrap.Modal.getOrCreateInstance(addModal).show()
                                     addDate.value = jumpDate.innerText
                                     bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
                                 }
-
+                                //如果現在是空的我就新增一個代辦事項給他
                                 if (localStorage.getItem(`${year}-${month + 1}-${td.childNodes[0].data}`) != null) {
-                                    
-                                    let ul = document.createElement('ul')
 
+                                    let ul = document.createElement('ul')
+                                    //從localStorage找日期
+                                    //td.childNodes[0].data ->日期
                                     let todoList = JSON.parse(localStorage.getItem(`${year}-${month + 1}-${td.childNodes[0].data}`))
-                                    console.log(todoList);
+                                    //所有代辦事項迭代
                                     todoList.forEach((item, index) => {
                                         let li = document.createElement('li')
-                                        li.innerText =`${index + 1}: ${item.title}`
-
+                                        li.innerText = `${index + 1}: ${item.title}`
+                                        //點到li時，可以編輯
                                         li.onclick = function (event) {
                                             bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
                                             bootstrap.Modal.getOrCreateInstance(editModal).show()
@@ -398,21 +413,20 @@
                                             editDate.value = `${year}-${month + 1}-${td.childNodes[0].data}`
                                             // console.log(td.childNodes);
                                             editTitle.value = item.title
-
+                                            //避免冒泡
                                             event.stopPropagation()
                                         }
                                         ul.append(li)
                                     })
                                     jumpDiv.append(ul)
                                 }
-                                else{
+                                //如果沒有代辦事項時，也可以增加事項，要可以按jumpDiv和 jumpBtn
+                                else {
                                     jumpDiv.onclick = function () {
-                                    //bootsrtap.modal.getOrCreateInstance(addModel).show()//.hide()//控制modal(bootstrap的語法)
-                                    bootstrap.Modal.getOrCreateInstance(addModal).show()
-                                    addDate.value = jumpDate.innerText
-                                    console.log(addDate.value);
-                                    bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
-                                }
+                                        bootstrap.Modal.getOrCreateInstance(addModal).show()
+                                        addDate.value = jumpDate.innerText
+                                        bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
+                                    }
                                     jumpBtn.onclick = function () {
                                         bootstrap.Modal.getOrCreateInstance(addModal).show()
                                         addDate.value = jumpDate.innerText
@@ -456,9 +470,11 @@
         }
         //新增行程
         function addTodoItem() {
+            addTitle.value = ''
+            addTxt.value = ''
             let date = addDate.value
             let todoItem = addTitle.value
-            let todoTex=addTxt.value
+            let todoTex = addTxt.value
 
             //自己創造的資料結構
             let todoObj = {
@@ -467,7 +483,7 @@
             }
             let todoList = []
             if (localStorage.getItem(date) == null) {
-                //那天沒行程
+                //那天沒行程->直接加行程
                 todoList.push(todoObj)
             }
             else {
@@ -486,12 +502,12 @@
         function editTodoItem() {
             let date = editDate.value
             let todoItem = editTitle.value
-            let todoTxt=editTxt.value
+            let todoTxt = editTxt.value
             let todoList = JSON.parse(localStorage.getItem(date))
-            todoList[currentTodoIndex] = { 
+            todoList[currentTodoIndex] = {
                 title: todoItem,
                 txt: todoTxt
-                }
+            }
             localStorage.setItem(date, JSON.stringify(todoList))
 
             bootstrap.Modal.getOrCreateInstance(editModal).hide()
@@ -509,7 +525,6 @@
         }
 
     </script>
-
 
 </body>
 
