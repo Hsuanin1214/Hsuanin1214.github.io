@@ -192,7 +192,7 @@
                 }
             },
             {
-                 //重來
+                //重來
                 id: '8',
                 icon: 'fas fa-angle-double-right',
                 target: function () {
@@ -246,7 +246,7 @@
 
         let walletMoney = document.querySelector('.walletmoney')
         let addMoneyInput = document.querySelector('.addmoneyinput')
-        const addmoneyBtn=document.querySelector('.addmoneybtn')
+        const addmoneyBtn = document.querySelector('.addmoneybtn')
 
 
         let gemInput = document.querySelector('#input1')
@@ -254,6 +254,9 @@
         let lemonInput = document.querySelector('#input3')
         let appleInput = document.querySelector('#input4')
         let totalBet = document.querySelector('.totalbet')
+
+        let inputArray = [gemInput, bellInput, lemonInput, appleInput]
+        //addMoneyInput?totalBet?
 
         //window
         window.onload = function () {
@@ -283,11 +286,12 @@
                 let random = Math.floor(Math.random() * bricksData.length) + 1
                 //還沒開始走，都是亂數
                 // +2(*bricks.length)讓他跑幾圈//v2
-                steps = random +(2*bricks.length)
+                steps = random + (2 * bricks.length)
                 allSteps = steps
                 //開始走的方法
                 turnAround()
-                this.disabled=true
+                this.disabled = true
+
             }
         }
 
@@ -314,6 +318,14 @@
                 //得到錢(中獎)
                 let magnification = bricksData[currentIndex].target()
                 betSpan.innerText = `${magnification}`
+                //走完要清空
+                inputArray.forEach((item) => {
+                        item.value = ''
+                    })
+                    totalBet.innerText = '0'
+
+
+
                 if (magnification == '重來一次!') {
                     delay().then(function () {
                         return delay(1000);
@@ -324,7 +336,12 @@
                 else {
                     wallet = parseInt(walletMoney.innerText) + magnification
                     walletMoney.innerText = `${wallet}`
-                    starBtn.disabled=false
+                    starBtn.disabled = false
+                    // //走完要清空
+                    // inputArray.forEach((item) => {
+                    //     item.value = ''
+                    // })
+                    // totalBet.innerText = '0'
                 }
             }
         }
@@ -344,16 +361,16 @@
 
         //錢包加錢
         function addMoney() {
-        wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
-        walletMoney.innerText = `${wallet}`
-        addMoneyInput.value = ''
+            wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
+            walletMoney.innerText = `${wallet}`
+            addMoneyInput.value = ''
         }
         //錢包取消加錢
         function resetAddMoney() {
             addMoneyInput.value = ''
         }
 
-        let inputArray = [gemInput, bellInput, lemonInput, appleInput]
+
         let addbetMoney = 0
         //只要沒下注的錢都是0
         inputArray.forEach((item) => {
