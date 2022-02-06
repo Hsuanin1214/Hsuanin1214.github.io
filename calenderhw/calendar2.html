@@ -402,7 +402,7 @@
                                     //所有代辦事項迭代
                                     todoList.forEach((item, index) => {
                                         let li = document.createElement('li')
-                                        li.innerText = `${index + 1}: ${item.title}`
+                                        li.innerText = `${index + 1}. ${item.title}`
                                         //點到li時，可以編輯
                                         li.onclick = function (event) {
                                             bootstrap.Modal.getOrCreateInstance(jumpModal).hide()
