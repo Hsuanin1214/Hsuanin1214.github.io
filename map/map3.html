@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+
+
+    <title>Map2</title>
+
+    <style>
+        /* 官方文件說如果要看到地圖要設高度*/
+        .container-fluid>.row {
+            height: 100vh;
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        .leaflet-tooltip {
+            position: absolute;
+            padding: 6px;
+            background-color: #ade8f4;
+            border: 1px solid #48cae4;
+            border-radius: 3px;
+        }
+
+        body {
+            background-color: #61a5c2;
+
+        }
+
+        .form-control {
+            border: 0;
+            webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            border-color: #fff;
+            webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .btn.active.focus,
+        .btn.active:focus,
+        .btn.focus,
+        .btn:active.focus,
+        .btn:active:focus,
+        .btn:focus {
+            outline: none;
+        }
+
+        /*去除选择框的outline*/
+        .bootstrap-select .dropdown-toggle:focus {
+            outline: none !important;
+        }
+
+        /*去除选项的outline*/
+        a:focus {
+            outline: none !important;
+        }
+
+        h2,
+        label{
+            color: #baebfc;
+        }
+
+        td {
+            background-color: #61a5c2;
+            color: #023357;
+        }
+        .select{
+            background-color: #014f86;
+            color: aliceblue;
+            font-weight: 700;
+        }
+        span{
+            color: #023357;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="map">
+                    <!-- 顯示地圖的區域 -->
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="country" class="fw-bold">縣/市</label>
+                        <select id="country" class="form-control select">
+                            <!-- option -->
+                        </select>
+                    </div>
+                </div>
+                <div class="row ">
+                    <h2 class="w-100 text-center m-3"><strong>iTaiwan 公共區域免費無線上網</strong></h2>
+                    <div class="d-flex justify-content-around p-2">
+                        <span class="areatext fw-bold fs-4"></span>
+                        <span class="num fw-bold fs-4"></span>
+                    </div>
+                    <div class="col-12">
+                        <!--圖表  -->
+                        <table class="table table-hover table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>場所</th>
+                                    <th>地址</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- axios -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js'></script>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <!-- chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"
+        integrity="sha512-G8JE1Xbr0egZE5gNGyUm1fF764iHVfRXshIoUWCTPAbKkkItp/6qal5YAHXrxEu4HNfPTQs6HOu3D5vCGS1j3w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <script>
+        //宣告
+        let map
+        //改成fetch也不會錯 ，then之前都不會執行
+        //也適用promise
+        //台灣路名資料 JSON
+        let roadDataRequest = axios.get('https://gist.githubusercontent.com/abc873693/2804e64324eaaf26515281710e1792df/raw/a1e1fc17d04b47c564bbd9dba0d59a6a325ec7c1/taiwan_districts.json')
+        //itaiwan JSON資料
+        let iTaiwanDataRequest = axios.get('https://raw.githubusercontent.com/Hsuanin1214/FileStorage/main/itaiwan')
+        //台灣經緯度資料 JSON
+        let areaDataRequest = axios.get('https://raw.githubusercontent.com/Hsuanin1214/FileStorage/main/taiwanarea.json')
+
+        //資料回來時存的地方
+        let areaData//行政區經緯度
+        let roadData//路名資料
+        let iTaiwanData//itaiwan 資料
+        let iTaiwanAreaData//行政區經緯度資料+itaiwan資料///保證上面兩個資料都有才能往下繼續做
+
+        let selectCity
+
+        let markers = L.markerClusterGroup()//地圖marker叢集群組
+        //DOM
+        //下拉是選單宣告
+        const citySelect = document.querySelector('select')
+        const areaText = document.querySelector('.areatext')//放縣市
+        const numSpan = document.querySelector('.num')
+        const tBody = document.querySelector('tbody')
+
+        //window.onload
+        window.onload = function () {
+            setMap()
+            //Promise.all()裡面是陣列，裡面宣告的事情都要成功才會promise
+            Promise.all([roadDataRequest, iTaiwanDataRequest, areaDataRequest])
+                .then(response => {
+                    // console.log(response);
+
+                    //解構複值
+                    let [roadRes, iTaiwanRes, areaRes] = response
+                    // console.log(roadRes);
+
+                    iTaiwanData = iTaiwanRes.data
+                    areaData = areaRes.data
+
+                    //用map語法組出新的需要的資料:city、town 、NAME、 ADDR、LATITUDE、LONGITUDE
+                    //對比縣市區的資料  areaData 裡的縣市區(City、District)跟itaiwanData的ADDR包含的縣市區
+                    //iTaiwanData資料裡面的NAME、 ADDR、LATITUDE、LONGITUDE
+                    //最後在過濾undifined的資料
+                    iTaiwanAreaData = iTaiwanData.map(site => {
+                        let siteAddr = areaData.find(area =>
+                            site.ADDR.includes(area.City) && site.ADDR.includes(area.District))
+                        let findCity = siteAddr != undefined ? siteAddr.City : undefined
+                        let findDistrict = siteAddr != undefined ? siteAddr.District : undefined
+                        let findCityLat = siteAddr != undefined ? siteAddr.Lat : undefined
+                        let findCityLng = siteAddr != undefined ? siteAddr.Lng : undefined
+
+                        return {
+                            Name: site.NAME,
+                            Addr: site.ADDR,
+                            CityDistrict: findCity + findDistrict,
+                            City: findCity,
+                            District: findDistrict,
+                            Lat: site.LATITUDE,
+                            Lng: site.LONGITUDE,
+                            Clat: findCityLat,
+                            Clng: findCityLng
+                        }
+                    }).filter(x => x.District != undefined).groupBy('CityDistrict')
+                    // console.log(iTaiwanAreaData);
+
+
+                    selectCity = iTaiwanData.map(site => {
+                        let siteAddr = areaData.find(area =>
+                            site.ADDR.includes(area.City) && site.ADDR.includes(area.District))
+                        let findCity = siteAddr != undefined ? siteAddr.City : undefined
+                        let findDistrict = siteAddr != undefined ? siteAddr.District : undefined
+                        let newArr = []
+                        newArr.push({
+                            Name: site.NAME,
+                            Addr: site.ADDR,
+                            CityDistrict: findCity + findDistrict
+                        })
+                        return newArr
+                    }).reduce(function (previousValue, currentValue) {
+                        return previousValue.concat(currentValue)
+                    })
+                    // console.log(selectCity);
+
+
+
+                    //初始設定地圖
+                    setMarker()
+
+                    Array.from(['請選擇']).concat([...new Set(areaData.map(x => x.City))]).forEach(x => {
+                        let option = document.createElement('option')
+                        option.innerText = x
+                        option.value = x == '請選擇' ? '' : x
+                        citySelect.appendChild(option)
+                    })
+                    // //經緯度縣市資料 
+                    // // areaData=areaRes.data
+                    // // console.log(areaData);
+                    // let findAreaData=areaData.forEach(areaObj=>{
+                    //     // console.log(areaObj);
+                    //     //縣市
+                    //     let areaArr=areaObj.City
+                    //     //區
+                    //     // let areaArr=Object.values(areaObj)[1]
+                    //     // console.log(areaArr);
+                    // })
+                    //要iTaiwanData資料裡面的NAME、 ADDR、LATITUDE、LONGITUDE
+                    // iTaiwanData=iTaiwanRes.data
+                    // console.log(iTaiwanData);
+                    // let findITaiwanData=iTaiwanData.forEach(site=>{
+                    // console.log(site);
+                    // let siteAddr=site.ADDR
+                    // let siteAddr=Object.values(site)[3]
+                    // console.log(siteAddr);
+                    // })
+
+
+                    // //每一個縣市的物件
+                    // roadData=roadRes.data
+                    // // console.log(roadData);
+                    // let findRoadData=roadData.map(cityObj=>{
+
+                    //     //找到縣市名字
+                    //     // console.log(cityObj.name);
+
+                    //     // //找到區的物件
+                    //     // console.log(cityObj.districts);
+                    //     let distArr=cityObj.districts
+                    //     distArr.forEach(district => {
+                    //         //找到區的名字
+                    //         // let districtsName=Object.values(district)[1]
+
+                    // });
+                    // })
+                })
+            citySelect.onchange = function () {
+                if (citySelect.value != '') {
+                    //地圖的焦點移動至該縣市
+                    let arr = []
+                    Object.keys(iTaiwanAreaData).forEach(distr => {
+                        let data = iTaiwanAreaData[distr]
+                        data.forEach(x => {
+                            if (x.City == citySelect.value) {
+                                map.setView([x.Lat, x.Lng], 12)//setView 移動焦點(經緯度,zoom) 12=zoom
+                            }
+                        })
+                    })
+                }
+            }
+        }
+
+        //filter
+        //reduce
+        //includes
+
+
+        //function
+        function setMap() {
+            //map
+            //初始化地圖
+            //第一個參數放在html的哪個區域裡面
+            //第二個參數是物件
+            //center代表地圖一開始中心點要在哪個經緯度
+            //zoom :地圖的縮放程度
+            map = L.map('map', {
+                center: [25.03416068163684, 121.56454962636319],
+                zoom: 9
+            })
+            //設定圖資
+            let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            //圖層
+            //{ minZoom: 8, maxZoom: 19 }設最大及最小的zoom
+            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 })
+            map.addLayer(osm)
+        }
+
+
+        function setMarker() {
+            //如果有marker，就要清空marker 的layer
+            if (markers) markers.clearLayers()
+
+            //markers樣式自訂
+            var wifiIcon = L.icon({
+                iconUrl: '../JS-0128/wifi-signal.png',
+                iconSize: [25, 25] // size of the icon
+            });
+            //滑動markers?
+            markers.on('clusterclick', function (a) {
+                a.layer.zoomToBounds({ padding: [20, 20] });
+            });
+
+            Object.values(iTaiwanAreaData).forEach(distr => {
+                // console.log(distr);
+
+                let marker
+                //取marker的經緯度
+                distr.forEach(x => {
+                    // console.log(x);
+
+                    marker = L.marker([x.Lat, x.Lng], {
+                        icon: wifiIcon
+                    })
+                    marker.bindPopup(
+                        `
+                        <div class="markerbox">
+                            <h4 class="text-center fw-bold"> ${x.Name} </h4>
+                            <p>地點: ${x.Addr} </p>
+                        </div>
+                        `
+                    )
+                    marker.bindTooltip("<div style='background:blue;'></div>",
+                        {
+                            direction: 'left',
+                            permanent: false,
+                            sticky: true,
+                            offset: [10, 0],
+                            opacity: 0.75,
+                            className: 'leaflet-tooltip'
+                        });
+
+                    marker.addEventListener('click', function () {
+                        areaText.innerText = `${x.City} - ${x.District}`
+                        tBody.innerHTML = ''
+
+
+                        selectCity.filter(city => city.CityDistrict == x.CityDistrict).forEach((town, index) => {
+                            let tr = document.createElement('tr')
+                            tr.innerText = `${index + 1}`
+                            let num = selectCity.filter(city => city.CityDistrict == x.CityDistrict).length - 1
+                            numSpan.innerText = `附近尚有 :${num} 個`
+
+                            console.log(town);
+                            for (let i = 0; i < 2; i++) {
+                                let td = document.createElement('td')
+                                let row = Object.values(town)[i]
+                                td.innerText = row
+                                tr.append(td)
+                            }
+                            tBody.append(tr)
+                        })
+
+                    })
+                    // console.log(marker);
+                    markers.addLayer(marker)
+                })
+                // console.log(marker);
+            })
+            map.addLayer(markers)
+        }
+
+        //array groupby 
+        Array.prototype.groupBy = function (prop) {
+            return this.reduce(function (groups, item) {
+                const val = item[prop]
+                groups[val] = groups[val] || []
+                groups[val].push(item)
+                return groups
+            }, {})
+        }
+    </script>
+
+</body>
+
+</html>
