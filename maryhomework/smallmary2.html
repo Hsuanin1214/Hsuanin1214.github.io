@@ -278,19 +278,25 @@
                 box.appendChild(i)
             })
 
+            starBtn.disabled = true
             //按下start
             //要設全域變數
             starBtn.onclick = function () {
-                speed = 85
-                //產生亂數(1~12)//至少要走一步
-                let random = Math.floor(Math.random() * bricksData.length) + 1
-                //還沒開始走，都是亂數
-                // +2(*bricks.length)讓他跑幾圈//v2
-                steps = random + (2 * bricks.length)
-                allSteps = steps
-                //開始走的方法
-                turnAround()
-                this.disabled = true
+                // if (walletMoney.innertext > 0) {
+                    this.disabled = false
+                    speed = 85
+                    //產生亂數(1~12)//至少要走一步
+                    let random = Math.floor(Math.random() * bricksData.length) + 1
+                    //還沒開始走，都是亂數
+                    // +2(*bricks.length)讓他跑幾圈//v2
+                    steps = random + (2 * bricks.length)
+                    allSteps = steps
+                    //開始走的方法
+                    turnAround()
+                    this.disabled = true
+                // } else {
+                //     this.disabled = true
+                // }
 
             }
         }
@@ -320,9 +326,9 @@
                 betSpan.innerText = `${magnification}`
                 //走完要清空
                 inputArray.forEach((item) => {
-                        item.value = ''
-                    })
-                    totalBet.innerText = '0'
+                    item.value = ''
+                })
+                totalBet.innerText = '0'
 
 
 
@@ -361,9 +367,19 @@
 
         //錢包加錢
         function addMoney() {
-            wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
-            walletMoney.innerText = `${wallet}`
-            addMoneyInput.value = ''
+
+            if (isNaN(parseInt(addMoneyInput.value))) {
+                starBtn.disabled =true
+                return 'Not a Number!';
+            }
+            else{
+                // console.log(addMoneyInput.value);
+                wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
+                walletMoney.innerText = `${wallet}`
+                addMoneyInput.value = 0
+                if(totalBet)
+                starBtn.disabled = false
+            }
         }
         //錢包取消加錢
         function resetAddMoney() {
