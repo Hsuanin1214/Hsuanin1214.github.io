@@ -36,7 +36,6 @@
 
         .container {
             max-width: 1200px;
-            min-width: 750px;
         }
 
         .wordbox {
@@ -146,6 +145,10 @@
         input {
             display: block;
             border: solid 2px #463f3a;
+        }
+
+        .btn:hover {
+            color: none;
         }
     </style>
 </head>
@@ -411,7 +414,7 @@
                                             editDate.value = `${year}-${month + 1}-${td.childNodes[0].data}`
                                             // console.log(td.childNodes);
                                             editTitle.value = item.title
-                                            editTxt.value=item.txt
+                                            editTxt.value = item.txt
                                             //避免冒泡
                                             event.stopPropagation()
                                         }
