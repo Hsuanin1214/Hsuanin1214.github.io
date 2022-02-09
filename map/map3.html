@@ -220,6 +220,7 @@
                         let findCityLat = siteAddr != undefined ? siteAddr.Lat : undefined
                         let findCityLng = siteAddr != undefined ? siteAddr.Lng : undefined
 
+                        //這裡可以點點點  解構
                         return {
                             Name: site.NAME,
                             Addr: site.ADDR,
@@ -319,6 +320,7 @@
         //filter
         //reduce
         //includes
+        //slice
 
 
         //function
@@ -404,17 +406,17 @@
                                 tr.append(td)
                             }
                             tBody.append(tr)
-                            tr.onclick = function () {
+                            // tr.onclick = function () {
 
-                                Object.keys(iTaiwanAreaData).forEach(distr => {
-                                    let data = iTaiwanAreaData[distr]
-                                    data.forEach(x => {
-                                        if (x.CityDistrict == Object.values(town)[2]) {
-                                            map.setView([x.Lat, x.Lng], 15)//setView 移動焦點(經緯度,zoom) 12=zoom
-                                        }
-                                    })
-                                })
-                            }
+                            //     Object.keys(iTaiwanAreaData).forEach(distr => {
+                            //         let data = iTaiwanAreaData[distr]
+                            //         data.forEach(x => {
+                            //             if (x.CityDistrict == Object.values(town)[2]) {
+                            //                 map.setView([x.Lat, x.Lng], 15)//setView 移動焦點(經緯度,zoom) 12=zoom
+                            //             }
+                            //         })
+                            //     })
+                            // }
                         })
                         console.log(tr);
                     })
