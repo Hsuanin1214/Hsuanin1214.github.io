@@ -283,17 +283,18 @@
             //要設全域變數
             starBtn.onclick = function () {
                 // if (walletMoney.innertext > 0) {
-                    this.disabled = false
-                    speed = 85
-                    //產生亂數(1~12)//至少要走一步
-                    let random = Math.floor(Math.random() * bricksData.length) + 1
-                    //還沒開始走，都是亂數
-                    // +2(*bricks.length)讓他跑幾圈//v2
-                    steps = random + (2 * bricks.length)
-                    allSteps = steps
-                    //開始走的方法
-                    turnAround()
-                    this.disabled = true
+                // this.disabled = false
+                speed = 85
+                //產生亂數(1~12)//至少要走一步
+                let random = Math.floor(Math.random() * bricksData.length) + 1
+                //還沒開始走，都是亂數
+                // +2(*bricks.length)讓他跑幾圈//v2
+                steps = random + (2 * bricks.length)
+                // steps=7
+                allSteps = steps
+                //開始走的方法
+                turnAround()
+                this.disabled = true
                 // } else {
                 //     this.disabled = true
                 // }
@@ -338,16 +339,20 @@
                     }).then(function () {
                         again()
                     })
+                    // const promise2 = new Promise((resolve, reject) => {
+                    //     setTimeout(again(),3000);
+                    // });
+                    
+                    // const promise2 = new Promise(function (resolve, reject){setTimeout(resolve,s);})
+                    // promise2.then(result=>{
+                    //     setTimeout(again(),1000)
+                    // })
+                    setTimeout(again(),1000)
+
                 }
                 else {
                     wallet = parseInt(walletMoney.innerText) + magnification
                     walletMoney.innerText = `${wallet}`
-                    starBtn.disabled = false
-                    // //走完要清空
-                    // inputArray.forEach((item) => {
-                    //     item.value = ''
-                    // })
-                    // totalBet.innerText = '0'
                 }
             }
         }
@@ -369,23 +374,22 @@
         function addMoney() {
 
             if (isNaN(parseInt(addMoneyInput.value))) {
-                starBtn.disabled =true
+                starBtn.disabled = true
                 return 'Not a Number!';
             }
-            else{
+            else {
                 // console.log(addMoneyInput.value);
                 wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
                 walletMoney.innerText = `${wallet}`
                 addMoneyInput.value = 0
-                if(totalBet)
-                starBtn.disabled = false
+                if (totalBet)
+                    starBtn.disabled = false
             }
         }
         //錢包取消加錢
         function resetAddMoney() {
             addMoneyInput.value = ''
         }
-
 
         let addbetMoney = 0
         //只要沒下注的錢都是0
@@ -394,6 +398,14 @@
         })
         //下注時
         function addBet() {
+            //j要判斷item進來的變數是甚麼(如果不是整數的話是甚麼)
+            inputArray.forEach((item)=>{
+                if(item.value== 0 || item.value==""){
+                    item.value=0
+                }else{
+                    item.value=item.value
+                }
+            })
             addbetMoney = 0
             totalBet.innerText = '0'
             let everyBet
@@ -401,6 +413,7 @@
             inputArray.forEach((item) => {
                 everyBet = parseInt(item.value)
                 addbetMoney += everyBet
+                
             })
             //錢包下注時
             //錢包大於等於下注錢
@@ -437,7 +450,5 @@
             }
         }
     </script>
-
 </body>
-
 </html>
