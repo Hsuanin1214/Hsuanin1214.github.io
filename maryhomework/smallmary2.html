@@ -256,7 +256,6 @@
         let totalBet = document.querySelector('.totalbet')
 
         let inputArray = [gemInput, bellInput, lemonInput, appleInput]
-        //addMoneyInput?totalBet?
 
         //window
         window.onload = function () {
@@ -282,8 +281,6 @@
             //按下start
             //要設全域變數
             starBtn.onclick = function () {
-                // if (walletMoney.innertext > 0) {
-                // this.disabled = false
                 speed = 85
                 //產生亂數(1~12)//至少要走一步
                 let random = Math.floor(Math.random() * bricksData.length) + 1
@@ -295,10 +292,6 @@
                 //開始走的方法
                 turnAround()
                 this.disabled = true
-                // } else {
-                //     this.disabled = true
-                // }
-
             }
         }
 
@@ -378,12 +371,11 @@
                 return 'Not a Number!';
             }
             else {
-                // console.log(addMoneyInput.value);
                 wallet = parseInt(walletMoney.innerText) + parseInt(addMoneyInput.value)
                 walletMoney.innerText = `${wallet}`
                 addMoneyInput.value = 0
-                if (totalBet)
-                    starBtn.disabled = false
+                // if (totalBet)
+                // starBtn.disabled = false
             }
         }
         //錢包取消加錢
